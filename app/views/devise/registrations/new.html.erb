@@ -1,17 +1,40 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => user_registration_path) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {role: "form"}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
+  <div class="form-group"><%= f.label :first_name %><br />
+  <%= f.text_field :fname, :autofocus => true %></div>
+  
+  <div class="form-group"><%= f.label :last_name %><br />
+  <%= f.text_field :lname, :autofocus => true %></div>
+  
+  <div class="form-group"><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
+  <div class="form-group"><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div class="form-group"><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div> <button type="submit" class="btn btn-default">Submit</button></div>
 <% end %>
 
+
+<!-- <form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+ 
+</form> -->

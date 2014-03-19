@@ -14,9 +14,9 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Action</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Notes</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right">  
         <%if user_signed_in?%>
@@ -30,9 +30,9 @@
   </nav>
   
   <%if notice%>
-  <div class="alert alert-info"><%= notice %></div>
+    <div class="alert alert-info"><%= notice %></div>
   <%elsif alert%>
-  <div class="alert alert-danger"><%= alert %></div>
+    <div class="alert alert-danger"><%= alert %></div>
   <%end%>
   
   <%= yield %>
