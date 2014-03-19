@@ -1,3 +1,3 @@
 Camp6::Application.routes.draw do
-  root :to => "sessions#new"
+  root :to => "static_pages#index"
 end
