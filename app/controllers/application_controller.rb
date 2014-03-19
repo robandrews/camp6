@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
     new_user_session_url
   end
   
-  def after_sign_in_path_for(user)
-    user_url(user)
-  end
-      
   def configure_devise_params
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:fname, :lname, :email, :password, :password_confirmation)

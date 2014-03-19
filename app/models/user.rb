@@ -24,4 +24,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  has_many :projects,
+  :class_name => "Project",
+  :foreign_key => :owner_id,
+  :primary_key => :id
+  
+  
+  def name
+    [self.fname,self.lname].join(" ")
+  end
 end
