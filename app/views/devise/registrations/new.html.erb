@@ -1,22 +1,2 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {role: "form"}) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="form-group"><%= f.label :first_name %><br />
-  <%= f.text_field :fname, :autofocus => true %></div>
-  
-  <div class="form-group"><%= f.label :last_name %><br />
-  <%= f.text_field :lname, :autofocus => true %></div>
-  
-  <div class="form-group"><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div class="form-group"><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div class="form-group"><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div> <button type="submit" class="btn btn-default">Submit</button></div>
-<% end %>
