@@ -1,8 +1,13 @@
 class ProjectsController < ApplicationController
+  
+  def index
+    @projects = Project.all
+    render :json => @projects
+  end
+  
   def show
     @project = Project.find(params[:id])
-    
-    #here we will render this to json...and get rid of the project show view, becuase this will all need to be in javascript.
+    render :json => @project
   end
   
   def create
