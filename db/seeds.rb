@@ -11,3 +11,10 @@ User.create(fname: "Rob", lname: "Andrews", email: "rob@gmail.com", password: "p
 User.create(fname: "Ryan", lname: "O'Donnell", email: "ryan@gmail.com", password: "password")
 User.create(fname: "Weyman", lname: "Fung", email: "weyman@gmail.com", password: "password")
 User.create(fname: "Malcolm", lname: "X", email: "malcolm@gmail.com", password: "password")
+
+Project.create(owner_id: 1, title: "Project 1")
+Project.create(owner_id: 1, title: "Project 2")
+Project.create(owner_id: 2, title: "Project 2")
+Project.create(owner_id: 4, title: "Project 1")
+Project.create(owner_id: 3, title: "Project 1")
+Project.create(owner_id: 2, title: "Project 1")
