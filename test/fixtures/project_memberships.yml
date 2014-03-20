@@ -1,13 +1,10 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: project_memberships
 #
 #  id         :integer          not null, primary key
-#  owner_id   :integer
-#  title      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  subtitle   :string(255)
+#  user_id    :integer
+#  project_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -1,0 +1,42 @@
+@import "bourbon";
+@import "neat";
+@import "projects";
+@import "static_pages";
+
+#top-nav{
+  margin:0 10px 0 10px;
+  padding-top:10px;
+  background-color:#eee1cc;
+  border-style:none;
+}
+  
+.content{
+  background-color:#eee1cc;
+  padding-top:20px;
+}
+
+body{
+  background-color:#eee1cc;
+}
+
+button{
+  @include button;
+}
+
+//.ui-dialog{
+//  
+//  .ui-dialog-titlebar{
+//  
+//    .ui-dialog-title{
+//  
+//    }
+//
+//    .ui-dialog-titlebar-close{
+//  
+//    }
+//    
+//  }
+//  
+//}
+
+

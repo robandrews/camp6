@@ -10,6 +10,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
+gem 'bourbon'
+gem 'neat'
+gem 'backbone-on-rails'
 
 group :doc do
   gem 'sdoc', require: false

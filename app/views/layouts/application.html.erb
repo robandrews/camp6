@@ -13,13 +13,14 @@
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 <body>
-  <div class="content">
     <%= render "layouts/nav" %>
     <%if notice%>
       <div class="alert alert-info"><%= notice %></div>
     <%elsif alert%>
       <div class="alert alert-danger"><%= alert %></div>
     <%end%>
+    
+  <div class="content">
     <%= yield %>
   </div>
 </body>
