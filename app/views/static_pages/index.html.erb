@@ -1,23 +1,20 @@
-<h1>All Projects</h1>
+<div class="container">
 
-  <ul>  
-    <% current_user.projects.each do |project| %>
-      <li><%=link_to project.title, project_url(project)%>
-    <%end%>
-  </ul>
-<br>
-
-<button id="create-user">Add another project</button>
+  <h1>All Projects</h1>
+  
+  <div class="container-fluid">  
+    <%=render "layouts/projects"%>
+    <button id="create-user">Add a project</button>
+  </div>  
   
   <script>
-
   $(function() {
     
     var name = $( "#name" ),
-      email = $( "#email" ),
-      password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
-      tips = $( ".validateTips" );
+    email = $( "#email" ),
+    password = $( "#password" ),
+    allFields = $( [] ).add( name ).add( email ).add( password ),
+    tips = $( ".validateTips" );
  
     $( "#dialog-form" ).dialog({
       autoOpen: false,
@@ -28,10 +25,10 @@
         "Create Project": function() {
           $("#new-proj-form").submit();
           $( this ).dialog( "close" );
-         },
+        },
         
         
-         Cancel: function() {
+        Cancel: function() {
           $( this ).dialog( "close" );
         }
         
@@ -43,35 +40,29 @@
     
     //Initializes the dialog
     $( "#create-user" )
-      .button()
-      .click(function() {
-        $( "#dialog-form" ).dialog( "open" );
-      });
+    .button()
+    .click(function() {
+      $( "#dialog-form" ).dialog( "open" );
+    });
   });
   </script>
-</head>
-<body>
- 
-<div id="dialog-form" title="Create new project">
+  
+  <div id="dialog-form" title="Create new project">
 
-  <form action="<%=projects_url%>" method="POST" id="new-proj-form">
+    <form action="<%= projects_url %>" method="POST" id="new-proj-form">
     
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
     
-    <label>Project Title
-    <input type="text" name="project[title]">
-    </label><br>
+      <label>Project Title
+        <input type="text" name="project[title]">
+      </label><br>
     
-    <label>Subtitle
-    <input type="text" name="project[subtitle]">
-    </label><br>
+      <label>Subtitle
+        <input type="text" name="project[subtitle]">
+      </label><br>
     
-    Add Collaborators to the Project
-    <!-- currentuser.friends -->
-  </form>
+      Add Collaborators to the Project
+    </form>
+  </div>
+
 </div>
- 
- 
- 
-</body>
-</html>

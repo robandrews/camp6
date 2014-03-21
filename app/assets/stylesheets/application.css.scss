@@ -4,7 +4,6 @@
 @import "static_pages";
 
 #top-nav{
-  margin:0 10px 0 10px;
   padding-top:10px;
   background-color:#eee1cc;
   border-style:none;
@@ -21,6 +20,14 @@ body{
 
 button{
   @include button;
+}
+
+.project-card{
+  @include outer-container;
+  @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
+  @include pad(40px);
+  margin:15px 30px 15px 30px;
+  background-color:white;
 }
 
 //.ui-dialog{

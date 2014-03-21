@@ -2,25 +2,39 @@ window.Camp6.Models.Project = Backbone.Model.extend({
   
   urlRoot: "/projects",
   
-  todos: function(){},
+  notes: function(){
+    if(!this._notes){
+      this._notes = new Camp6.Collection.Notes([],{
+        project: this
+      })
+    }
+  },
   
-  notes: function(){}
-  
-  
-  //need to make collections for all of these nested data
   todo_lists: function () {
     if (!this._todo_lists) {
-      this._todo_lists = new Todo.Collections.TodoLists([], {
+      this._todo_lists = new Camp6.Collections.TodoLists([], {
         project: this
       });
     }
 
-    return this._comments;
+    return this._todo_lists;
   },
 
+
+
+  //need to work out the parse function to take the nested todo items but leae the todo list intact
   parse: function (jsonResp) {
-    if (jsonResp.comments) {
+    if (jsonResp.todo_lists) {
       this.todo_lists().set(jsonResp.todo_lists);
+      jsonResp.todo_lists.forEach(function(todo_list){
+        if(todo_list.todos){
+          //test scope.
+          todo_list.todos().set()
+        }
+      })
+      if(jsonResp.todo_lists.todos){
+        
+      }
       delete jsonResp.todo_lists;
     }else if(jsonResp.notes){
       this.notes().set(jsonResp.notes);
@@ -29,4 +43,5 @@ window.Camp6.Models.Project = Backbone.Model.extend({
 
     return jsonResp;
   }
+  
 })

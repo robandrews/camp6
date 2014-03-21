@@ -1,3 +1,3 @@
 window.Camp6.Models.Todo = Backbone.Model.extend({
-  urlRoot: "?"
+  urlRoot: "/projects/:project_id/todo_lists/:id/"
 })

@@ -1,0 +1,15 @@
+<%projects = current_user.projects%>
+<% i = 0 %>
+<%while(i < projects.length) do%>  
+  <div class="row">
+    
+    <% 3.times do %>
+      <%project = projects[i]%>
+      <%if project.nil?%>
+        <%break%>
+      <%end%>
+      <div class='col-md-3 project-card'><%=link_to project.title, project_url(project)%></div>
+      <% i += 1%>
+    <%end%>
+  </div>
+<%end%>

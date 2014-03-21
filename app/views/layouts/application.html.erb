@@ -16,11 +16,10 @@
   
   <%= render "layouts/nav" %>
   <%if notice%>
-  <div class="alert alert-info"><%= notice %></div>
+    <div class="alert alert-info"><%= notice %></div>
   <%elsif alert%>
-  <div class="alert alert-danger"><%= alert %></div>
+    <div class="alert alert-danger"><%= alert %></div>
   <%end%>
-    
   <div class="content">
     <%= yield %>
   </div>
