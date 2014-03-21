@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320155605) do
+ActiveRecord::Schema.define(version: 20140321060802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notes", force: true do |t|
+    t.text     "body"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
 
   create_table "project_memberships", force: true do |t|
     t.integer "user_id"
@@ -31,6 +39,27 @@ ActiveRecord::Schema.define(version: 20140320155605) do
     t.datetime "updated_at"
     t.string   "subtitle"
   end
+
+  create_table "todo_lists", force: true do |t|
+    t.integer  "project_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "todos", force: true do |t|
+    t.string   "task"
+    t.boolean  "completed"
+    t.datetime "due_date"
+    t.integer  "todo_list_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assignee_id"
+  end
+
+  add_index "todos", ["author_id"], name: "index_todos_on_author_id", using: :btree
+  add_index "todos", ["todo_list_id"], name: "index_todos_on_todo_list_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

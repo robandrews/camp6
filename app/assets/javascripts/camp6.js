@@ -2,19 +2,24 @@ window.Camp6 = {
   Models: {},
   Collections: {},
   Views: {},
-  Routers: {},
+  Routers: {},  
   initialize: function() {
-    Camp6.projects = new Camp6.Collections.Projects();
-    Camp6.projects.fetch({
+    //find the project we are on
+    var pathname = window.location.pathname;
+    var id = pathname.slice(-1);
+    Camp6.project = new Camp6.Models.Project({id: id})
+    //fetch it and pass it to the router
+    Camp6.project.fetch({
       success: function(){
-        alert("projects fetched")
-        new Camp6.Routers.AppRouter();
-        Backbone.history.start();
-      }
-    });
+        
+        new Camp6.Routers.AppRouter({
+          project: Camp6.project
+        });
+        
+        Backbone.history.start();  
+        
+      }      
+    })  
   }
 };
 
-$(document).ready(function(){
-  Camp6.initialize();
-});

@@ -29,7 +29,13 @@ class User < ActiveRecord::Base
   has_many :projects,
   :through => :project_memberships
   
+  has_many :notes,
+  :class_name => "Note",
+  :foreign_key => :author_id,
+  :primary_key => :id
+  
   def name
     [self.fname,self.lname].join(" ")
   end
+  
 end

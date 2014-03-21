@@ -17,5 +17,8 @@ class Project < ActiveRecord::Base
   has_many :users,
   :through => :project_memberships,
   :source => :users
+
+  has_many :todo_lists
   
+  has_many :notes
 end

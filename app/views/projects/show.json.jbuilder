@@ -1,0 +1,1 @@
+json.partial!("projects/project", :project => @project, :todo_lists => @todo_lists, :notes => @notes)

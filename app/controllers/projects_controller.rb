@@ -1,5 +1,4 @@
-class ProjectsController < ApplicationController
-  
+class ProjectsController < ApplicationController  
   def index
     @projects = Project.all
     render :json => @projects
@@ -7,7 +6,9 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    render :json => @project
+    @todo_lists = @project.todo_lists
+    @notes = @project.notes
+    render "projects/show"
   end
   
   def create
@@ -25,4 +26,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :subtitle, :collaborators)
   end
+  
 end
