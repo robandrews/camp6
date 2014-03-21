@@ -26,4 +26,7 @@ todo_list.todos.create({:completed => false,
 todo_list.todos.create({:completed => false, 
   :due_date => Time.now.advance(days: 2), :author_id => 1, :task => "Buy eggs"})
   
-proj.notes.create({:author_id => 1, :body => "industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."})
+todo_list.todos.create({:completed => true, 
+    :due_date => Time.now.advance(days: 2), :author_id => 1, :task => "Buy cheese!"})
+    
+proj.notes.create({:title => "A sweet title", :author_id => 1, :body => "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."})

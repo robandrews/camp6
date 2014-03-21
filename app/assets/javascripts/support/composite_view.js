@@ -1,76 +1,53 @@
-//Thoughtbot's (Thoughtbot, inc - http://www.thoughtbot.com) redition of a backbone composite view from their backbone-on-rails book.
+Backbone.CompositeView = Backbone.View.extend({
+  addSubview: function (selector, subview) {
+    var selectorSubviews =
+      this.subviews()[selector] || (this.subviews()[selector] = []);
 
-Backbone.CompositeView = function(options){
-  this.children = _([]);
-  this.bindings = _([]);
-  Backbone.View.apply(this, [options])
-}
+    selectorSubviews.push(subview);
 
-_.extend(Backbone.CompositeView.prototype, Backbone.View.prototype, {
-  leave: function() {
-    this.unbind();
-    this.unbindFromAll();
-    this.remove();
-    this._leaveChildren();
-    this._removeFromParent();
+    var $selectorEl = this.$(selector);
+    $selectorEl.append(subview.$el);
   },
-  
-  bindTo: function(source, event, callback){
-    source.bind(event, callback, this);
-    this.bindings.push({source: source, event: event, callback: callback});
-  },
-  
-  unbindFromAll: function(){
-    this.bindings.each(function(binding){
-      binding.source.unbind(binding.event, binding.callback);
-    });
-    this.bindings = _([]);
-  },
-  
-  renderChild: function(view){
-    view.render();
-    this.children.push(view);
-    view.parent = this
-  },
-  
-  renderChildInto: function(view, container){
-    this.renderChild(view);
-    $(container).empty().append(view.el)
-  },
-  
-  appendChild: function(view){
-    this.renderChild(view);
-    $(this.el).append(view.el)
-  },
-  
-  appendChildTo:function(view, container){
-    this.renderChild(view);
-    $(container).append(view.el)
-  },
-  
-  prependChildTo: function(view, container){
-    this.renderChild(view);
-    $(container).prepend(view.el);
-  },
-  
-  _leaveChildren: function(){
-    this.children.chain().clone().each(function(view){
-      if(view.leave){
-        view.leave();
-      }
+
+  remove: function () {
+    Backbone.View.prototype.remove.call(this);
+
+    // remove all subviews as well
+    _(this.subviews()).each(function (selectorSubviews, selector) {
+      _(selectorSubviews).each(function (subview){
+        subview.remove();
+      });
     });
   },
-  
-  _removeFromParent: function(){
-    if(this.parent){
-      this.parent._removeChild(this);
+
+  removeSubview: function (selector, subview) {
+    var selectorSubviews =
+      this.subviews()[selector] || (this.subviews()[selector] = []);
+
+    var subviewIndex = selectorSubviews.indexOf(subview);
+    selectorSubviews.splice(subviewIndex, 1);
+    subview.remove();
+  },
+
+  renderSubviews: function () {
+    var view = this;
+    
+    _(this.subviews()).each(function (selectorSubviews, selector) {
+      var $selectorEl = view.$(selector);
+      $selectorEl.empty();
+
+      _(selectorSubviews).each(function (subview) {
+        $selectorEl.append(subview.render().$el);
+        subview.delegateEvents();
+      });
+    });
+  },
+
+  subviews: function () {
+    if (!this._subviews) {
+      this._subviews = {};
     }
-  },
-  
-  _removeChild: function(view){
-    var index = this.children.indexOf(view);
-    this.children.splice(index, 1);
+
+    return this._subviews;
   }
 });
-
-Backbone.CompositeView.extend = Backbone.View.extend;

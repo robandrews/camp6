@@ -20,5 +20,9 @@
   #proj-add-users{
     @include span-columns(4);
   }  
+  
+  .proj-sub{
+    padding:20px;
+  }
 }
 

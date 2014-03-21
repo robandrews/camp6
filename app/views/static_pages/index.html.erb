@@ -47,22 +47,44 @@
   });
   </script>
   
-  <div id="dialog-form" title="Create new project">
+  
+  <div class="modal fade" id="create-project" tabindex="-1" role="dialog" aria-labelledby="create-projectLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="create-projectLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          
+          <form action="<%= projects_url %>" method="POST" id="new-proj-form">
+    
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    
+            <label>Project Title
+              <input type="text" name="project[title]">
+            </label><br>
+    
+            <label>Subtitle
+              <input type="text" name="project[subtitle]">
+            </label><br>
+    
+            Add Collaborators to the Project
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" action="submit" class="btn btn-primary go-green">Create Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-project">
+    Create New Project
+  </button>
 
-    <form action="<%= projects_url %>" method="POST" id="new-proj-form">
     
-      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-    
-      <label>Project Title
-        <input type="text" name="project[title]">
-      </label><br>
-    
-      <label>Subtitle
-        <input type="text" name="project[subtitle]">
-      </label><br>
-    
-      Add Collaborators to the Project
-    </form>
   </div>
 
 </div>

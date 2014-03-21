@@ -4,10 +4,11 @@ window.Camp6.Models.Project = Backbone.Model.extend({
   
   notes: function(){
     if(!this._notes){
-      this._notes = new Camp6.Collection.Notes([],{
+      this._notes = new Camp6.Collections.Notes([],{
         project: this
       })
     }
+    return this._notes
   },
   
   todo_lists: function () {
@@ -22,25 +23,26 @@ window.Camp6.Models.Project = Backbone.Model.extend({
 
 
 
-  //need to work out the parse function to take the nested todo items but leae the todo list intact
   parse: function (jsonResp) {
     if (jsonResp.todo_lists) {
-      this.todo_lists().set(jsonResp.todo_lists);
-      jsonResp.todo_lists.forEach(function(todo_list){
-        if(todo_list.todos){
-          //test scope.
-          todo_list.todos().set()
-        }
-      })
-      if(jsonResp.todo_lists.todos){
-        
-      }
-      delete jsonResp.todo_lists;
-    }else if(jsonResp.notes){
+      var lists = jsonResp.todo_lists
+      this.todo_lists().set(lists);
+      var i = 0;
+      
+      //This code would be used to instantiate individual todo objects, not sure if needed at this juncture.
+      // this.todo_lists().forEach(function(todo_list){
+//         if(todo_list.todos){
+//           todo_list.todos().set(lists[i].todos);
+//           i+=1;
+//         }
+//       })
+      delete jsonResp.todo_lists
+    }
+    if(jsonResp.notes){
       this.notes().set(jsonResp.notes);
       delete jsonResp.notes;
     }
-
+    
     return jsonResp;
   }
   

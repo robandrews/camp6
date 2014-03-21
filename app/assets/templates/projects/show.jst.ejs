@@ -1,13 +1,18 @@
-<div class="project">
+<div class="project container">
   
-  <div class="proj-header">
+  <div class="row">
     <div class="titles">
       <h3 id="proj-title"><%=project.escape("title")%></h3>
       <h5 id="proj-subtitle"><%=project.escape("subtitle")%></h5>
     </div>
-    <div clas="proj-add-users">
+    <div class="proj-add-users">
       <button id="add-user-button">Invite people to This Project</button>
     </div>
+  </div>
+  
+  <div class="row proj-sub">
+    <h4>Notes</h4> 
+    <ul class="notes"></ul>
   </div>
   
 </div>
