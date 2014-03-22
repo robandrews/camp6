@@ -5,48 +5,7 @@
   <div class="container-fluid">  
     <%=render "layouts/projects"%>
     <button id="create-user">Add a project</button>
-  </div>  
-  
-  <script>
-  $(function() {
-    
-    var name = $( "#name" ),
-    email = $( "#email" ),
-    password = $( "#password" ),
-    allFields = $( [] ).add( name ).add( email ).add( password ),
-    tips = $( ".validateTips" );
- 
-    $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 500,
-      width: 650,
-      modal: true,
-      buttons: {
-        "Create Project": function() {
-          $("#new-proj-form").submit();
-          $( this ).dialog( "close" );
-        },
-        
-        
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-        
-      },
-      close: function() {
-        allFields.val( "" ).removeClass( "ui-state-error" );
-      }
-    });
-    
-    //Initializes the dialog
-    $( "#create-user" )
-    .button()
-    .click(function() {
-      $( "#dialog-form" ).dialog( "open" );
-    });
-  });
-  </script>
-  
+  </div>
   
   <div class="modal fade" id="create-project" tabindex="-1" role="dialog" aria-labelledby="create-projectLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -74,12 +33,15 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" action="submit" class="btn btn-primary go-green">Create Project</button>
+          <button type="submit" action="submit" class="btn btn-primary">Create Project</button>
         </div>
       </div>
     </div>
   </div>
   
+  
+  
+
   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-project">
     Create New Project
   </button>

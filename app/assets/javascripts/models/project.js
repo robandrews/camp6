@@ -27,17 +27,18 @@ window.Camp6.Models.Project = Backbone.Model.extend({
     if (jsonResp.todo_lists) {
       var lists = jsonResp.todo_lists
       this.todo_lists().set(lists);
-      var i = 0;
       
-      //This code would be used to instantiate individual todo objects, not sure if needed at this juncture.
-      // this.todo_lists().forEach(function(todo_list){
-//         if(todo_list.todos){
-//           todo_list.todos().set(lists[i].todos);
-//           i+=1;
-//         }
-//       })
+      // This code would be used to instantiate individual todo objects, not sure if needed at this juncture.
+      var i = 0;
+      this.todo_lists().forEach(function(todo_list){
+        if(todo_list.todos){
+          todo_list.todos().set(lists[i].todos);
+          i += 1;
+        }
+      })
       delete jsonResp.todo_lists
     }
+    
     if(jsonResp.notes){
       this.notes().set(jsonResp.notes);
       delete jsonResp.notes;

@@ -8,20 +8,22 @@ window.Camp6.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     this.addSubview(".notes", notesShowView)
     
-    var todoShowView = new Camp6.Views.TodoShow({
+    
+    //passing in all the todo_lists for a given project    
+    var todoShowView = new Camp6.Views.TodoListShow({
       collection: this.model.todo_lists()
     })
-    
     this.addSubview(".todos", todoShowView);
+    
   },
-  
+
   render: function(){
     var renderedContent = this.template({
       project: this.model
     });
     
     this.$el.html(renderedContent); 
-        
+
     this.renderSubviews();
     return this;
   }

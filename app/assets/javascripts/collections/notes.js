@@ -1,5 +1,7 @@
 window.Camp6.Collections.Notes = Backbone.Collection.extend({
-  url: "/projects/:id/notes",
+  url: function(){
+    return this.project.url() + "/notes"
+  },
   
   initialize: function (models, options) {
     this.project = options.project;

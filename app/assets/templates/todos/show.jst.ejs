@@ -1,11 +1,9 @@
 <% todos.each(function(todo_list){ %>  
-  
-  <h5> <%=todo_list.escape("title")%> </h5>
-  <ul>
-  //need to get todos() working for a todo_list    
+  <h5><%=todo_list.escape("title")%></h5>
+  <ul>    
     <%todo_list.todos().each(function(todo){ %>
-      // make this prechecked if it is completed
-      <li> <input type="checkbox" class="todo" data-id=" <%= todo.get('id') %> "> 
+      <li> <input type="checkbox" class="todo" data-id=" <%= todo.get('id') %> " 
+                    <%if(todo.get("completed")){%> CHECKED<%}%>> 
           <%=todo.escape("task")%>  </input></li>
     <% }) %>
   </ul>
