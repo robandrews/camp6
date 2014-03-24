@@ -2,6 +2,7 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
   routes:{
     "":"projectShow",
     "/projects/notes/:id":"notesShow",
+    "calendar":"showCalendar",
     "/calendar":"showCalendar"
   },
   
@@ -16,7 +17,7 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
       model: this.project
     });
              
-    $("body").append(projectShowView.render().$el);
+    $(".content").html(projectShowView.render().$el);
   },
   
   noteShow: function(options){
@@ -24,7 +25,11 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
   },
   
   showCalendar: function(){
-    debugger
+    var calendarShowView = new Camp6.Views.CalendarShow({
+      model: this.project
+    });
+    
+    $(".content").html(calendarShowView.render().$el)
   }
   
   
