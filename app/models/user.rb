@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   has_many :project_memberships
   
   has_many :projects,
-  :through => :project_memberships
+  :through => :project_memberships,
+  :source => :project
   
   has_many :notes,
   :class_name => "Note",
