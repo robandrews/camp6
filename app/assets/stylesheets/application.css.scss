@@ -2,6 +2,7 @@
 @import "neat";
 @import "projects";
 @import "static_pages";
+//@import "/app/assets/calendar/lib/cupertino/images/jquery-ui.min.css";
 
 #top-nav{
   padding-top:10px;
@@ -26,6 +27,33 @@ button{
   background-color:white;
 }
 
+
+.fc-event {
+	background: #fff !important;
+	color: #000 !important;
+	}
+	
+/* for vertical events */
+	
+.fc-event-bg {
+	display: none !important;
+	}
+	
+.fc-event .ui-resizable-handle {
+	display: none !important;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		width: 900px;
+		margin: 40px auto;
+	}	
 
 //.ui-dialog{
 //  

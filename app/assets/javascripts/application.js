@@ -10,9 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment.min
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui.custom.min
+//= require fullcalendar
 //= require underscore
 //= require backbone
 //= require camp6

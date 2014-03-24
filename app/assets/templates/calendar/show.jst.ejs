@@ -1,9 +1,49 @@
-<h1><%=project.escape("title") %> Calendar</h1>
+<script>
+  $(function(){
+    $('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2014-01-12',
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end) {
+				var title = prompt('Event Title:');
+				var eventData;
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				}
+				$('#calendar').fullCalendar('unselect');
+			},
+			editable: true,
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2014-01-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2014-01-07',
+					end: '2014-01-10'
+				}
+			]
+		});
+  })
+</script>
 
 <div class="container">
   <div class="row">
     <div class="col-md-2" id="calendar-sidebar" style="border-style:solid;"><h3>Calendar Sidebar</h3></div>
-    <div class="col-md-9 col-md-offset-1" id="calendar-body" style="border-style:solid;"><center><h3>Calendar Body</h3></center></div>
+    <div class="col-md-9 col-md-offset-1" id="calendar-body" style="border-style:solid;">
+    <center><h3>Calendar Body</h3></center> 
+      <div id='calendar'></div>
+    </div>
   </div>
 </div>
-
