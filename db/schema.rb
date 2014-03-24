@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140321205957) do
 
   create_table "todo_lists", force: true do |t|
     t.integer  "project_id"
-    t.string   "title"
+    t.string   "title";
     t.datetime "created_at"
     t.datetime "updated_at"
   end

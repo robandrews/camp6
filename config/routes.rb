@@ -6,7 +6,6 @@ Camp6::Application.routes.draw do
     resources :todo_lists do
       resources :todos
     end
-    
     resources :notes
   end
   

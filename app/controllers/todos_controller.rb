@@ -11,14 +11,24 @@ class TodosController < ApplicationController
   end
   
   def update
-    p params
     @todo = Todo.find(params[:id])
     @todo.update_attributes(todo_params)
     render :json => @todo
   end
   
-  def todo_params
-    params.require(:todo).permit(:id, :completed, :task, :due_date)
+  def create
+    p params
+    @todo = Todo.new(todo_params)
+
+    if @todo.save
+      render :json => @todo
+    else
+      render :json => @todo.errors, :status => :unprocessable_entity
+    end
   end
   
+  private
+  def todo_params
+    params.require(:todo).permit(:id, :completed, :task, :due_date, :todo_list_id, :assignee_id, :author_id)
+  end  
 end

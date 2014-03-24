@@ -11,7 +11,13 @@
 
 class TodoList < ActiveRecord::Base
   
+  validates :title, :project_id, presence: true 
+  
   belongs_to :project
   
-  has_many :todos
+  has_many :todos,
+  :class_name => "Todo",
+  :foreign_key => :todo_list_id,
+  :primary_key => :id
+  
 end

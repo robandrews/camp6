@@ -1,6 +1,9 @@
+<div id="current_user" data-id="<%=current_user.id%>"></div>
 <script>
 $(document).ready(function(){
   Backbone.history.stop()
-  Camp6.initialize();
+  Camp6.initialize({
+    current_user: $("#current_user").data("id")
+  });
 });
 </script>

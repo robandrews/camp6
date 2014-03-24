@@ -1,6 +1,6 @@
 <% notes.each(function(note){ %>  
   
-  <h5> <%=note.escape("title")%> </h5>
+  <h5> <a href="projects/notes/<%=note.id%>" ><%=note.escape("title")%></a> </h5>
   <p> <%=note.escape("body")%> </p>
   <em> Authored by <%= note.get("author_id") %> on <%=note.get("updated_at")%> </em>
 

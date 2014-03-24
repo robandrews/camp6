@@ -8,13 +8,13 @@ window.Camp6.Views.ProjectShow = Backbone.CompositeView.extend({
     });
     this.addSubview(".notes", notesShowView)
     
-    
-    //passing in all the todo_lists for a given project    
     var todoShowView = new Camp6.Views.TodoListShow({
-      collection: this.model.todo_lists()
+      collection: this.model.todo_lists(),
+      project: this.model
     })
-    this.addSubview(".todos", todoShowView);
     
+    this.addSubview(".todos", todoShowView);
+    this.listenTo(this.model.todo_lists(), "add change", this.render);
   },
 
   render: function(){

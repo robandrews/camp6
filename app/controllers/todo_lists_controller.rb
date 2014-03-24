@@ -10,4 +10,20 @@ class TodoListsController < ApplicationController
     render :json => @todo_list
   end
   
+  def create
+    @todo_list = TodoList.new(todo_list_params)
+    if @todo_list.save
+      render :json => @todo_list
+    else
+      render :json => @todo_list.errors, :status => :unprocessable_entity
+    end
+  end
+
+
+  private
+  def todo_list_params
+    params.require(:todo_list).permit(:title, :project_id)
+  end  
 end
+
+

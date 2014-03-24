@@ -3,10 +3,14 @@ window.Camp6 = {
   Collections: {},
   Views: {},
   Routers: {},  
-  initialize: function() {
-    //find the project we are on
+  initialize: function(options) {
     var pathname = window.location.pathname;
+    this.current_user_id = options.current_user
+    //...this is going to fail for double digit projects...//
+    //           ..figure out a regex..                    //
     var id = pathname.slice(-1);
+    //====================================================//
+    
     Camp6.project = new Camp6.Models.Project({id: id})
     //fetch it and pass it to the router
     Camp6.project.fetch({

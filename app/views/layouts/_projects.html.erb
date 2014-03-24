@@ -8,7 +8,7 @@
       <%if project.nil?%>
         <%break%>
       <%end%>
-      <div class='col-md-3 project-card'><%=link_to project.title, project_url(project)%></div>
+      <div class='col-md-3 project-card'><h4><%=link_to project.title, project_url(project)%></h4></div>
       <% i += 1%>
     <%end%>
   </div>
