@@ -8,7 +8,8 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
   },
   
   initialize: function(options){
-    this.todo_list = options.todo_list
+    this.parent_lists = options.todo_lists;
+    this.todo_list = options.todo_list;
   },
   
   events:{
@@ -32,6 +33,7 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
       success: function(todo){
         view.todo_list.todos().add(todo);
         $('#todo-name-input').val("");
+        view.parent_lists.trigger("sync");
       }
     });
   }

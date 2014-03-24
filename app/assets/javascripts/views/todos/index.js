@@ -6,7 +6,7 @@ window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
   
   initialize: function(options){
     this.project = options.project;
-    this.listenTo(this.project.todo_lists(), "add change", this.render);
+    this.listenTo(this.project.todo_lists(), "add sync", this.render);
   },
   
   events: {
@@ -43,7 +43,8 @@ window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
     var listNum = $(event.target).data("id")
     var list = this.collection.get(listNum)
     var newTodoItemView = new Camp6.Views.TodoItemNew({
-      todo_list: list
+      todo_list: list,
+      todo_lists: this.project.todo_lists()
     });
 
     $(event.target).parent().find(".new-todo-input")
