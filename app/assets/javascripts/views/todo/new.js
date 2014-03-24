@@ -27,7 +27,6 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
          completed: false
              
     });
-    debugger
     var view = this;
     newTodo.save({}, {
       success: function(todo){
