@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.custom.min
+//= require tooltip
 //= require fullcalendar
 //= require underscore
 //= require backbone

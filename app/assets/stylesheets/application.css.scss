@@ -20,11 +20,6 @@ button{
 }
 
 .project-card{
-  @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
-  background-color:white;
-}
-
-#calendar-body{
   @include outer-container;
   @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
   @include pad(40px);
@@ -32,6 +27,12 @@ button{
   background-color:white;
 }
 
+#calendar-body{
+  @include outer-container;
+  @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
+  margin:15px 0px 15px 30px;
+  background-color:white;
+}
 
 .fc-event {
 	background: #fff !important;

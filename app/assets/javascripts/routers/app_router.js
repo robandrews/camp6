@@ -3,7 +3,8 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     "":"projectShow",
     "/projects/notes/:id":"notesShow",
     "calendar":"showCalendar",
-    "/calendar":"showCalendar"
+    // "projects/:project_id/todo-list/:id":"todoListShow",
+    "todo-lists/:id":"todoListShow"
   },
   
   initialize: function(options){
@@ -29,9 +30,17 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
       model: this.project
     });
     
-    $(".content").html(calendarShowView.render().$el)
+    $(".content").html(calendarShowView.render().$el);
+  },
+  
+  todoListShow: function(id){
+    debugger
+    var todo_list = this.project.todo_lists().get(id);
+    var todoListView = new Camp6.Views.TodoListShow({
+      model: todo_list
+    });
+    
+    $(".content").html(todoListView.render().$el);
   }
-  
-  
   
 })
