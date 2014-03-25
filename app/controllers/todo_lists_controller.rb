@@ -19,6 +19,11 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def calendar_todos
+    current_proj = Project.find(params[:project_id])
+    @todos = current_proj.todos
+    render "todo_lists/cal"
+  end
 
   private
   def todo_list_params

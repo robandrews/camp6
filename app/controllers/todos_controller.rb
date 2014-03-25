@@ -17,7 +17,6 @@ class TodosController < ApplicationController
   end
   
   def create
-    p params
     @todo = Todo.new(todo_params)
 
     if @todo.save
@@ -29,6 +28,6 @@ class TodosController < ApplicationController
   
   private
   def todo_params
-    params.require(:todo).permit(:id, :completed, :task, :due_date, :todo_list_id, :assignee_id, :author_id)
+    params.require(:todo).permit(:id, :completed, :title, :due_date, :todo_list_id, :assignee_id, :author_id)
   end  
 end

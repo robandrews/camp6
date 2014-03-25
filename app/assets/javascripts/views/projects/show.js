@@ -2,11 +2,11 @@ window.Camp6.Views.ProjectShow = Backbone.CompositeView.extend({
   template: JST['projects/show'],
   
   initialize: function(){
-
-    var notesShowView = new Camp6.Views.NotesShow({
+    var notesIndexView = new Camp6.Views.NotesIndex({
       collection: this.model.notes()
     });
-    this.addSubview(".notes", notesShowView)
+    
+    this.addSubview(".notes", notesIndexView)
     
     var todoIndexView = new Camp6.Views.TodoListIndex({
       collection: this.model.todo_lists(),

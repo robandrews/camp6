@@ -8,7 +8,6 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  project_id :integer
-#  title      :string(255)
 #
 
 class Note < ActiveRecord::Base

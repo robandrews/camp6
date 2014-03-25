@@ -9,4 +9,6 @@ Camp6::Application.routes.draw do
     resources :notes
   end
   
+  get 'projects/:project_id/calendar', :to => 'todo_lists#calendar_todos'
+  
 end

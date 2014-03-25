@@ -22,7 +22,7 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
     var newTodo = new Camp6.Models.Todo({
       
     //due date and assignee id as an optional extension later
-         task: task,
+         title: task,
          todo_list_id: this.todo_list.id,
          author_id: Camp6.current_user_id,
          completed: false

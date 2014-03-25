@@ -1,7 +1,5 @@
 <button class="add-todo-list btn-sm">Add Todo List</button>
 
-<div class="add-todo-form"></div>
-
 <% todos.each(function(todo_list){ %>  
   <div class='todo-list' data-id='<%=todo_list.id%>'>
     <a href="#todo-lists/<%=todo_list.id%>"<h5><%=todo_list.escape("title")%></h5></a>
@@ -9,7 +7,7 @@
       <%todo_list.todos().each(function(todo){ %>
         <li> <input type="checkbox" class="todo" data-id=" <%= todo.get('id') %> " 
                       <%if(todo.get("completed")){%> CHECKED<%}%>> 
-            <%=todo.escape("task")%>  </input></li>
+            <%=todo.escape("title")%>  </input></li>
       <% }) %>
     </ul>
   

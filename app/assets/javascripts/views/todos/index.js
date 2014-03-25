@@ -29,7 +29,14 @@ window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
     var todo_id = check.data("id");
     var checked = check.prop("checked");
     var updateTodo = new Camp6.Models.Todo({id: todo_id, completed: checked});
-    updateTodo.save();
+    debugger
+    
+    //need a way to update the todos of the todo list from which this todo was checked.....
+    
+    // updateTodo.save({},{
+//       success: function()
+//     });
+    
   },
   
   showAddList: function(event){
