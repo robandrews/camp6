@@ -6,7 +6,6 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     "todo-lists/:id":"todoListShow",
     "notes/new":"noteNew",
     "notes/:id":"noteShow"
-    
   },
   
   initialize: function(options){
@@ -43,7 +42,8 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
   noteShow: function(id){
     var note = this.project.notes().get(id);
     var noteView = new Camp6.Views.NoteShow({
-      model: note
+      model: note,
+      project_url: this.project_url
     });
     $(".content").html(noteView.render().$el);
   },

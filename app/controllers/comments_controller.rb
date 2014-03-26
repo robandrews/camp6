@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+
   def index
-    @commentable = find_commentable
-    @comments = @commentable.comments
+    target = Note.find(params[:note_id]) || TodoList.find(params[:todo_list_id])
+    @comments = target.comments
+    render "comments/index"
   end
 
   def create
@@ -18,6 +20,6 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:content, :commentable_id, :commenter_id)
-  end
-  
+  end    
+
 end

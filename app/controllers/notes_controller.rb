@@ -1,13 +1,14 @@
 class NotesController < ApplicationController
   
   def index
+    debugger
     @notes = Note.all
     render :json => @notes
   end
   
   def show
     @note = Note.find(params[:id])
-    render :json => @note
+    render "notes/show"
   end
   
   def create

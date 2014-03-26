@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.custom.min
+//= require typeahead.bundle
 //= require transition
 //= require tooltip
 //= require advanced

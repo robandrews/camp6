@@ -1,0 +1,1 @@
+json.(comment, :id, :commenter_id, :content, :commentable_id)

@@ -1,4 +1,5 @@
 todos = @todos
+
 todos ||= nil
 unless todos.nil?
   json.(todos) do |todo|
