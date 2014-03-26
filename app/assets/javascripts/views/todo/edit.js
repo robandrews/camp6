@@ -2,7 +2,8 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
   template: JST["todo/edit"],
   
   events:{
-    "click button.submit-edit-todo":"submitEdit"
+    "click button.submit-edit-todo":"submitEdit",
+    "click a.close-edit-todo":"closeEditForm"
   },
   
   initialize: function(options){
@@ -19,7 +20,10 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
     
     return this;
   },
-  
+  closeEditForm: function(){
+    $(".edit-todo-form").remove();
+    this.todo_lists.trigger("sync")
+  },
   submitEdit: function(event){
     event.preventDefault();
     var title = $("#edit-todo-title-input").val(); 
