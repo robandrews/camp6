@@ -1,4 +1,4 @@
-window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
+window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   
   //lets try to make this todo list a composite view so we can re-render individual comments after editing
   
@@ -12,7 +12,8 @@ window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
   events: {
     "click input.todo":"handleCheckedBox",
     "click button.add-todo-list":"showAddList",
-    "click button.add-single-todo":"showAddTodo"
+    "click button.add-single-todo":"showAddTodo",
+    "click a.index-todo":"editTodo"
   },
   
   render: function(){
@@ -24,19 +25,28 @@ window.Camp6.Views.TodoListIndex = Backbone.CompositeView.extend({
     return this;
   },
   
+  editTodo: function(event){
+    var list = $(event.target).parent().data("list-id")
+    var todo_id = $(event.target).parent().data("id")
+    $(event.target).parent().html("")
+    
+    debugger
+
+  },
+  
   handleCheckedBox: function(event){
     var check = $(event.target);
     var todo_id = check.data("id");
     var checked = check.prop("checked");
     var updateTodo = new Camp6.Models.Todo({id: todo_id, completed: checked});
-    debugger
-    
-    //need a way to update the todos of the todo list from which this todo was checked.....
-    
-    // updateTodo.save({},{
-//       success: function()
-//     });
-    
+    var list = this.project.todo_lists().get($(event.target).parent().data("list-id")).collection
+    updateTodo.save({},{
+      success: function(todo){
+        list.remove(todo_id);
+        list.add(todo)
+        list.trigger("sync")
+      }
+    });    
   },
   
   showAddList: function(event){

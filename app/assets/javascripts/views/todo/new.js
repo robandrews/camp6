@@ -13,20 +13,24 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
   },
   
   events:{
-    "click button.submit-create-todo":"handleAddingTodo"
+    "click button.submit-create-todo":"handleAddingTodo",
+    "click a.close-add-todo":"closeAddingForm"
+  },
+  
+  closeAddingForm: function(){
+    $(".add-todo-form").remove();
   },
   
   handleAddingTodo: function(event){
-    
-    var task = $("#todo-name-input").val();     
+    event.preventDefault();
+    var title = $("#todo-title-input").val(); 
+    var date = $("#todo-date-input").val();   
     var newTodo = new Camp6.Models.Todo({
-      
-    //due date and assignee id as an optional extension later
-         title: task,
+         title: title,
          todo_list_id: this.todo_list.id,
          author_id: Camp6.current_user_id,
-         completed: false
-             
+         completed: false,
+         due_date: date
     });
     var view = this;
     newTodo.save({}, {
@@ -37,5 +41,4 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
       }
     });
   }
-  
 })

@@ -1,8 +1,10 @@
 <h1><%=todo_list.escape("title")%></h1>
 <ul>
+  
   <%todo_list.todos().each(function(todo){ %>
     <li> <input type="checkbox" class="todo" data-id=" <%= todo.get('id') %> " 
                   <%if(todo.get("completed")){%> CHECKED<%}%>> 
         <%=todo.escape("title")%>  </input></li>
   <% }) %>
+
 </ul>
