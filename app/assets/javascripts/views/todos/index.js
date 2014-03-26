@@ -26,12 +26,13 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   },
   
   editTodo: function(event){
-    var list = $(event.target).parent().data("list-id")
+    var list_id = $(event.target).parent().data("list-id")
     var todo_id = $(event.target).parent().data("id")
-    // $(event.target).parent().html("")
-    
-    debugger
-
+    var todo = this.project.todo_lists().get(list_id).todos().get(todo_id)
+    var editView = new Camp6.Views.TodoEdit({
+      model: todo
+    });
+    $(event.target).parent().html(editView.render().$el);
   },
   
   handleCheckedBox: function(event){
