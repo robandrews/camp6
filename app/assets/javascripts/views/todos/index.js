@@ -28,7 +28,7 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   editTodo: function(event){
     var list = $(event.target).parent().data("list-id")
     var todo_id = $(event.target).parent().data("id")
-    $(event.target).parent().html("")
+    // $(event.target).parent().html("")
     
     debugger
 
@@ -39,14 +39,14 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
     var todo_id = check.data("id");
     var checked = check.prop("checked");
     var updateTodo = new Camp6.Models.Todo({id: todo_id, completed: checked});
-    var list = this.project.todo_lists().get($(event.target).parent().data("list-id")).collection
+    var list = this.project.todo_lists().get($(event.target).parent().data("list-id"));
     updateTodo.save({},{
       success: function(todo){
-        list.remove(todo_id);
-        list.add(todo)
+        list.todos().remove(todo_id);
+        list.todos().add(todo)
         list.trigger("sync")
       }
-    });    
+    }); 
   },
   
   showAddList: function(event){
