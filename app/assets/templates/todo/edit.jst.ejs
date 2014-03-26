@@ -1,6 +1,6 @@
 <form class="edit-todo-form">
   <label>Todo: 
-    <input type="text" id="edit-todo-title-input" value=" <%=todo.escape('title')%> ">
+    <input type="text" id="edit-todo-title-input" value="<%=todo.escape('title')%>">
     <label>Due Date: <input type="date" id="edit-todo-date-input" value="<%= todo.escape('due_date').substring(0,10)%>"> </label>
   </label>
 

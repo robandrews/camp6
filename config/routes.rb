@@ -5,10 +5,14 @@ Camp6::Application.routes.draw do
   resources :projects do
     resources :todo_lists do
       resources :todos
+      resources :comments
     end
-    resources :notes
+    
+    resources :notes do
+      resources :comments
+    end
+    
   end
   
   get 'projects/:project_id/calendar', :to => 'todo_lists#calendar_todos'
-  
 end

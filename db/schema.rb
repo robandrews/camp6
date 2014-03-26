@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325215903) do
+ActiveRecord::Schema.define(version: 20140326164704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "commenter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", force: true do |t|
     t.text     "body"
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140325215903) do
     t.string   "lname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

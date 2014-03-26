@@ -3,7 +3,7 @@
 # Table name: todos
 #
 #  id           :integer          not null, primary key
-#  task         :string(255)
+#  title        :string(255)
 #  completed    :boolean
 #  due_date     :datetime
 #  todo_list_id :integer

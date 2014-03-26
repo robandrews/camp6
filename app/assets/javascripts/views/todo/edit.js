@@ -22,7 +22,8 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
     return this;
   },
   
-  closeEditForm: function(){
+  closeEditForm: function(event){
+    event.preventDefault();
     $(".edit-todo-form").remove();
     this.todo_lists.trigger("sync")
   },
@@ -50,6 +51,7 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
   },
 
   delete:function(event){
+    event.preventDefault();
     this.todo_list.todos().remove(this.model.id);
     this.model.destroy();
     this.todo_lists.trigger("sync");

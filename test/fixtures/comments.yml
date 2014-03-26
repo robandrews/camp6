@@ -1,16 +1,14 @@
 # == Schema Information
 #
-# Table name: todos
+# Table name: comments
 #
-#  id           :integer          not null, primary key
-#  title        :string(255)
-#  completed    :boolean
-#  due_date     :datetime
-#  todo_list_id :integer
-#  author_id    :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  assignee_id  :integer
+#  id               :integer          not null, primary key
+#  content          :text
+#  commentable_id   :integer
+#  commentable_type :string(255)
+#  commenter_id     :integer
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

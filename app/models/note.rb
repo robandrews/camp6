@@ -10,12 +10,13 @@
 #  project_id :integer
 #
 
-class Note < ActiveRecord::Base
-  
+class Note < ActiveRecord::Base  
   belongs_to :project
 
   belongs_to :author,
   :class_name => "User",
   :foreign_key => :author_id,
   :primary_key => :id
+  
+  has_many :comments, :as => :commentable
 end

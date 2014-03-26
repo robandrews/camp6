@@ -20,4 +20,5 @@ class TodoList < ActiveRecord::Base
   :foreign_key => :todo_list_id,
   :primary_key => :id
   
+  has_many :comments, :as => :commentable
 end
