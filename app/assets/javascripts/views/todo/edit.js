@@ -3,7 +3,8 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
   
   events:{
     "click button.submit-edit-todo":"submitEdit",
-    "click a.close-edit-todo":"closeEditForm"
+    "click a.close-edit-todo":"closeEditForm",
+    "click button.delete-todo":"delete"
   },
   
   initialize: function(options){
@@ -20,10 +21,12 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
     
     return this;
   },
+  
   closeEditForm: function(){
     $(".edit-todo-form").remove();
     this.todo_lists.trigger("sync")
   },
+  
   submitEdit: function(event){
     event.preventDefault();
     var title = $("#edit-todo-title-input").val(); 
@@ -44,5 +47,12 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
         view.todo_lists.trigger("sync");
       }
     });
+  },
+
+  delete:function(event){
+    this.todo_list.todos().remove(this.model.id);
+    this.model.destroy();
+    this.todo_lists.trigger("sync");
   }
+  
 })

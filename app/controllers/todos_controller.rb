@@ -26,6 +26,15 @@ class TodosController < ApplicationController
     end
   end
   
+  def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      render :json => @todo
+    else
+      render :json => @todo.errors, :status => :unprocessable_entity
+    end
+  end
+  
   private
   def todo_params
     params.require(:todo).permit(:id, :completed, :title, :due_date, :todo_list_id, :assignee_id, :author_id)
