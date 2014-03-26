@@ -13,7 +13,7 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
     "click input.todo":"handleCheckedBox",
     "click button.add-todo-list":"showAddList",
     "click button.add-single-todo":"showAddTodo",
-    "click a.index-todo":"editTodo"
+    "click a.index-todo":"showEditTodo"
   },
   
   render: function(){
@@ -25,15 +25,7 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
     return this;
   },
   
-  editTodo: function(event){
-    var list_id = $(event.target).parent().data("list-id")
-    var todo_id = $(event.target).parent().data("id")
-    var todo = this.project.todo_lists().get(list_id).todos().get(todo_id)
-    var editView = new Camp6.Views.TodoEdit({
-      model: todo
-    });
-    $(event.target).parent().html(editView.render().$el);
-  },
+
   
   handleCheckedBox: function(event){
     var check = $(event.target);
@@ -45,7 +37,6 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
       success: function(todo){
         list.todos().remove(todo_id);
         list.todos().add(todo)
-        list.trigger("sync")
       }
     }); 
   },
@@ -68,6 +59,19 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
 
     $(event.target).parent().find(".new-todo-input")
         .html(newTodoItemView.render().$el);
-  }
+  },
+  
+  showEditTodo: function(event){
+    var listId = $(event.target).parent().data("list-id")
+    var todoId = $(event.target).parent().data("id")
+    var list = this.collection.get(listId)
+    var todo = list.todos().get(todoId)
+    var editView = new Camp6.Views.TodoEdit({
+      model: todo,
+      todo_list: list,
+      todo_lists: this.project.todo_lists()
+    });
+    $(event.target).parent().html(editView.render().$el);
+  },
   
 });

@@ -1,6 +1,15 @@
 window.Camp6.Views.TodoEdit = Backbone.View.extend({
   template: JST["todo/edit"],
   
+  events:{
+    "click button.submit-edit-todo":"submitEdit"
+  },
+  
+  initialize: function(options){
+    this.todo_list = options.todo_list;
+    this.todo_lists = options.todo_lists;
+  },
+  
   render: function(){
     var renderedContent = this.template({
       todo: this.model
@@ -9,5 +18,27 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     return this;
+  },
+  
+  submitEdit: function(event){
+    event.preventDefault();
+    var title = $("#edit-todo-title-input").val(); 
+    var date = $("#edit-todo-date-input").val();   
+    var newTodo = new Camp6.Models.Todo({
+         id: this.model.id,
+         title: title,
+         todo_list_id: this.todo_list.id,
+         author_id: Camp6.current_user_id,
+         completed: false,
+         due_date: date
+    });
+    var view = this;
+    newTodo.save({}, {
+      success: function(todo){
+        view.todo_list.todos().remove(view.model.id)
+        view.todo_list.todos().add(todo);
+        view.todo_lists.trigger("sync");
+      }
+    });
   }
 })
