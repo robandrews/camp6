@@ -1,20 +1,9 @@
+
 <%window.project_id = project.id%>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1" id="calendar-body">
-    <h4><%=project.escape("title")%></h4>
-      <div id='calendar'></div>
-    </div>
-  </div>
-</div>
-
-<a href="#">Back to <%= project.escape("title") %> </a>
-
-
-
 <script>
+  $(function(){
+
+    
     $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -23,10 +12,30 @@
 			defaultDate: '2014-03-12',
 			selectable: true,
 			selectHelper: true,
-			select: function(start, end, jsEvent) {},
+			select: function(start, end, jsEvent) {
+				// var title = prompt('Event Title:');
+//         var eventData;
+        console.log("select function called")
+        $date_box = $(jsEvent.target);
+        $date_box.popover(
+          { trigger: 'click',
+            content: 'ß Testing!',
+            placement: "auto left"
+            });
+        $date_box.trigger( "click" );
+			},
 			editable: true,
 			events: "/projects/" + window.project_id + "/calendar",
       unselectAuto: true
 		});
   })
 </script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" id="calendar-sidebar"><h3>Calendar Sidebar</h3></div>
+    <div class="col-md-9 col-md-offset-1" id="calendar-body">
+      <div id='calendar'></div>
+    </div>
+  </div>
+</div>
