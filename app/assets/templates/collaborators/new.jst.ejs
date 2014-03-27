@@ -1,0 +1,45 @@
+<h3>Here's who's on this project:</h3>
+<div class="row">
+  <div class="col-xs-6 add-users-pane">
+    <h5>Add Members</h5>  
+    
+
+      <input class="typeahead" id="collab-email" type="text" placeholder="Choose email">
+      <button class="add-new-collaborator">Add Collaborator</button>
+  </div>
+  
+  <div class="col-xs-4 current-users-pane">
+    <h5>Team</h5>
+  </div>
+  
+  </div>
+</div>
+
+
+<script>
+var substringMatcher = function(strs) {
+  return function findMatches(q, callback) {
+    var matches, substringRegex;
+    matches = [];
+    substrRegex = new RegExp(q, 'i');
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        matches.push({ value: str });
+      }
+    });
+ 
+    callback(matches);
+  };
+};
+
+$($('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  displayKey: 'value',
+  source: substringMatcher(Camp6.emails)
+}))
+</script>

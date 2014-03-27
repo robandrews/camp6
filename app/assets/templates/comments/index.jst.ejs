@@ -1,5 +1,5 @@
 <ul>
-  <%commentable.comments().forEach(function(comment){%>
-      <li><%=comment.escape("content")%>
+  <%comments.forEach(function(comment){%>
+      <li><%=comment.escape("content")%></li>
   <%})%>
 </ul>

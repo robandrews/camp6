@@ -29,7 +29,8 @@ window.Camp6.Views.CommentNew = Backbone.View.extend({
     
     comment.save({
       success: function(comment){
-        alert("saved.")
+        this.note.comments().add(comment);
+        this.note.comments().trigger("sync")
       }
     });
   }

@@ -10,9 +10,9 @@ window.Camp6 = {
     //           ..figure out a regex..                    //
     var id = pathname.slice(-1);
     //====================================================//
-    
-    Camp6.project = new Camp6.Models.Project({id: id})
+    Camp6.project = new Camp6.Models.Project({id: id});
     //fetch it and pass it to the router
+    
     Camp6.project.fetch({
       success: function(){
         
@@ -23,7 +23,16 @@ window.Camp6 = {
         Backbone.history.start();  
         
       }      
-    })  
+    })
+    Camp6.emails = new Array();
+    
+    Camp6.users.fetch({
+      success: function(users){
+        users.toJSON().forEach(function(user){
+          Camp6.emails.push(user[0]);
+        })
+      }
+    });
   }
 };
 

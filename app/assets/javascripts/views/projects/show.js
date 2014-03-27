@@ -5,9 +5,6 @@ window.Camp6.Views.ProjectShow = Backbone.CompositeView.extend({
     "click button.add-collaborators":"addCollaborators"
   },
   
-  addCollaborators:function(){
-    
-  },
   initialize: function(){
     var notesIndexView = new Camp6.Views.NotesIndex({
       collection: this.model.notes()

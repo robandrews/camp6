@@ -14,5 +14,6 @@ Camp6::Application.routes.draw do
     
   end
   
+  resources :project_memberships
   get 'projects/:project_id/calendar', :to => 'todo_lists#calendar_todos'
 end

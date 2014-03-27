@@ -5,13 +5,22 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     "calendar":"showCalendar",
     "todo-lists/:id":"todoListShow",
     "notes/new":"noteNew",
-    "notes/:id":"noteShow"
+    "notes/:id":"noteShow",
+    "add-collaborators":"addCollaborators"
   },
   
   initialize: function(options){
     this.project = options.project;
     this.project_url = this.project.url();
     this.notes_url = this.project_url + "/notes/:id";
+  },
+  
+  addCollaborators: function(){
+    var addCollabs = new Camp6.Views.NewCollaborators({
+      model: this.project
+    });
+    
+    $(".content").html(addCollabs.render().$el);
   },
   
   showProject: function(){
@@ -32,20 +41,42 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
   
   todoListShow: function(id){
     var todo_list = this.project.todo_lists().get(id);
-    var todoListView = new Camp6.Views.TodoListShow({
-      model: todo_list
+    
+    var comments = todo_list.comments([], {
+      todo_list: todo_list
     });
     
-    $(".content").html(todoListView.render().$el);
+    var that = this;
+    comments.fetch({
+      success:function(){
+        var todoListView = new Camp6.Views.TodoListShow({
+          model: todo_list,
+          comments: comments
+        });
+        $(".content").html(todoListView.render().$el);
+      }
+    })
+    
   },
   
   noteShow: function(id){
     var note = this.project.notes().get(id);
-    var noteView = new Camp6.Views.NoteShow({
-      model: note,
-      project_url: this.project_url
+    
+    var comments = note.comments([], {
+      note: note
     });
-    $(".content").html(noteView.render().$el);
+    
+    var that = this;
+    
+    comments.fetch({
+      success: function(comments){
+        var noteView = new Camp6.Views.NoteShow({
+          model: note,
+          comments: comments
+        });
+        $(".content").html(noteView.render().$el);
+      }
+    })
   },
   
   noteNew: function(){

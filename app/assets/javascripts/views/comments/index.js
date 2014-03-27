@@ -3,24 +3,15 @@ window.Camp6.Views.CommentsIndex = Backbone.View.extend({
   
   initialize: function(options){
     this.project_url = options.project_url;
+    this.comments = options.comments;
   },
   
   render: function(){
-    var view = this;
-    var comments = this.model.comments([], {
-      note: this.model
+    var renderedContent = this.template({
+      comments: this.comments
     });
-    
-    comments.fetch({
-      success:function(){
         
-        var renderedContent = view.template({
-          commentable: view.model
-        });
-        
-        view.$el.html(renderedContent);  
-      }
-    })
+    this.$el.html(renderedContent);  
 
     return this;
   }
