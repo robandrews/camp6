@@ -65,6 +65,16 @@ body {
   margin: 40px auto;
 }
 
+.todo-li a{
+  visibility: hidden;
+  color:#B0B0B0;
+}
+
+.todo-li:hover a{
+  visibility:visible;
+  cursor:pointer;;
+};
+
 ul {
   list-style-type: none;
   padding:0;
@@ -105,5 +115,6 @@ textarea.comment-body{
 }
 
 .todo-list{
-  background-color:red;
+  margin-right:50px;
+  
 }

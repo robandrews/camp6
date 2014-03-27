@@ -30,7 +30,6 @@ window.Camp6.Views.NoteNew = Backbone.View.extend({
       project_id: proj_id,
       author_id: user
     });
-    debugger
     note.save({},{
       success: function(note){
         view.project.notes().add(note);

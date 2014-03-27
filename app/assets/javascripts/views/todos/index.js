@@ -25,8 +25,6 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
     return this;
   },
   
-
-  
   handleCheckedBox: function(event){
     var check = $(event.target);
     var todo_id = check.data("id");
@@ -72,6 +70,6 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
       todo_lists: this.project.todo_lists()
     });
     $(event.target).parent().html(editView.render().$el);
-  },
+  }
   
 });

@@ -43,7 +43,8 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     var todo_list = this.project.todo_lists().get(id);
     
     var comments = todo_list.comments([], {
-      todo_list: todo_list
+      todo_list: todo_list,
+      project: this.project
     });
     
     var that = this;

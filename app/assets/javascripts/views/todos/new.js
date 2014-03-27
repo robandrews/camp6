@@ -2,7 +2,7 @@ window.Camp6.Views.TodoListNew = Backbone.View.extend({
   template: JST["todos/new"],
   
   initialize: function(options){
-    this.project = options.project
+    this.project = options.project;
   },
   
   events:{
@@ -19,7 +19,7 @@ window.Camp6.Views.TodoListNew = Backbone.View.extend({
     var view = this;    
 
     newList.save({}, {
-      success:function(list){ 
+      success: function(list){ 
         view.collection.add(list);
         $("#todo-list-name-input").val("");
       }

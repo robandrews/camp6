@@ -9,8 +9,6 @@
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end, jsEvent) {
-				// var title = prompt('Event Title:');
-//         var eventData;
         console.log("select function called")
         $date_box = $(jsEvent.target);
         $date_box.popover(
@@ -29,8 +27,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2" id="calendar-sidebar"><h3>Calendar Sidebar</h3></div>
-    <div class="col-md-9 col-md-offset-1" id="calendar-body">
+    <div class="col-md-10 col-md-offset-1" id="calendar-body">
     <h4><%=project.escape("title")%></h4>
       <div id='calendar'></div>
     </div>
