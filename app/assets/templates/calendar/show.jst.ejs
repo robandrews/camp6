@@ -1,29 +1,5 @@
 <%window.project_id = project.id%>
-<script>
-    $('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title'
-			},
-			defaultDate: '2014-03-12',
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end, jsEvent) {
-        console.log("select function called")
-        $date_box = $(jsEvent.target);
-        $date_box.popover(
-          { trigger: 'click',
-            content: 'ß Testing!',
-            placement: "auto left"
-            });
-        $date_box.trigger( "click" );
-			},
-			editable: true,
-			events: "/projects/" + window.project_id + "/calendar",
-      unselectAuto: true
-		});
-  })
-</script>
+
 
 <div class="container">
   <div class="row">
@@ -35,3 +11,22 @@
 </div>
 
 <a href="#">Back to <%= project.escape("title") %> </a>
+
+
+
+<script>
+    $('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title'
+			},
+			defaultDate: '2014-03-12',
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end, jsEvent) {},
+			editable: true,
+			events: "/projects/" + window.project_id + "/calendar",
+      unselectAuto: true
+		});
+  })
+</script>
