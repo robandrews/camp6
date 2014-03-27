@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
   :through => :project_memberships,
   :source => :project
   
+  has_many :owned_projects,
+  :class_name => "Project",
+  :foreign_key => :owner_id,
+  :primary_key => :id
+  
   has_many :notes,
   :class_name => "Note",
   :foreign_key => :author_id,

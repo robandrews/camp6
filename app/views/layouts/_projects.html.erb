@@ -8,7 +8,10 @@
       <%if project.nil?%>
         <%break%>
       <%end%>
-      <div class='col-md-3 project-card'><h4><%=link_to project.title, project_url(project)%></h4></div>
+      <div class='col-md-3 project-card'>
+        <h4><%=link_to project.title, project_url(project)%></h4>
+        <footer>Created by <%=project.owner.name%></footer>
+      </div>
       <% i += 1%>
     <%end%>
   </div>

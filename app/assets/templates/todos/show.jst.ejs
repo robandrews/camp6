@@ -1,13 +1,15 @@
-<h1><%=todo_list.escape("title")%></h1>
-<ul>
-  
-  <%todo_list.todos().each(function(todo){ %>
-    <li> <input type="checkbox" class="todo" data-id=" <%= todo.get('id') %> " 
-                  <%if(todo.get("completed")){%> CHECKED<%}%>> 
-        <%=todo.escape("title")%>  </input></li>
-  <% }) %>
-
-</ul>
+<div class='todo-list' data-id='<%=todo_list.id%>'>
+  <a href="#todo-lists/<%=todo_list.id%>"<h5><%=todo_list.escape("title")%></h5></a>
+  <ul>
+    <%todo_list.todos().each(function(todo){ %>
+      <li class="todo-li" data-list-id="<%=todo_list.id%>" data-id="<%= todo.id %>"> <input type="checkbox" class="todo" data-id="<%= todo.get('id') %>" 
+                    <%if(todo.get("completed")){%> CHECKED<%}%>> 
+          <%=todo.escape("title")%>  </input> <a class="index-todo">Edit</a></li>
+    <% }) %>
+  </ul>
+  <div class='new-todo-input'></div>  
+  <button class="add-single-todo btn-xs" data-id="<%= todo_list.id %>">Add todo</button>
+</div>
 
 <div class="comments">
 <div class="all-note-comments"></div>

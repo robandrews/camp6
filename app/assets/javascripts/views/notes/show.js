@@ -2,15 +2,8 @@ window.Camp6.Views.NoteShow = Backbone.CompositeView.extend({
   template: JST["notes/show"],
   
   initialize: function(options){    
-    this.comments = options.comments
-    
-    
-    //need to figure out where to put this to make it render
-    this.listenTo(this.comments, "add", this.render)
-    
-    
-    
-    
+    this.comments = options.comments    
+    this.listenTo(this.model.comments(), "all", this.render)
     
     var addComment = new Camp6.Views.CommentNew({
       note: this.model

@@ -21,11 +21,7 @@ window.Camp6.Views.NewCollaborators = Backbone.View.extend({
       project_id: this.model.id
     });
     
-    newCollab.save({
-      success:function(proj_mem){
-        console.log("success.")
-      }
-    });
+    newCollab.save();
   },
   
   render: function(){

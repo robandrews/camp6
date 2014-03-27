@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default" role="navigation" id="top-nav">
   <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li><img src="https://s3-us-west-1.amazonaws.com/camp6/img/camp7.png" width=75px></li>
+    <a href="/"><img src="https://s3-us-west-1.amazonaws.com/camp6/img/camp7.png" width=75px id="logo"></a>
+    <ul class="nav navbar-nav" id="links-left">
       <li><a href="/">Projects</a></li>
       <li><a href="#calendar">Calendar</a></li>
       <li><a href="#notes">Notes</a></li>
     </ul>
-    <ul class="nav navbar-nav pull-right">  
+    <ul class="nav navbar-nav pull-right" id="links-right">  
       <%if user_signed_in?%>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.name%> <b class="caret"></b></a>

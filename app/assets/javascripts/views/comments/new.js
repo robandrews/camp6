@@ -26,11 +26,12 @@ window.Camp6.Views.CommentNew = Backbone.View.extend({
       commenter_id: commenter_id, 
       content: content
     });
-    
-    comment.save({
+    var that = this;
+    comment.save({}, {
       success: function(comment){
-        this.note.comments().add(comment);
-        this.note.comments().trigger("sync")
+        that.note.comments().add(comment);
+        $(".comment-body").val();
+        that.note.comments().trigger("sync");
       }
     });
   }

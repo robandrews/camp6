@@ -47,6 +47,7 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     });
     
     var that = this;
+    
     comments.fetch({
       success:function(){
         var todoListView = new Camp6.Views.TodoListShow({

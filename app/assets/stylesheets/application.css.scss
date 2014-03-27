@@ -4,11 +4,17 @@
 @import "static_pages";
 @import "fullcalendar.css";
 
+nav.navbar{
+  background-color:#eee1cc;
+}
+
 #top-nav{
   padding-top:10px;
   background-color:#eee1cc;
   border-style:none;
 }
+
+
 
 .content{
   background-color:#eee1cc;
@@ -75,4 +81,29 @@ ul {
 
 textarea.comment-body{
   width:60%;
+}
+
+#links-left{
+  padding:15px;
+}
+#links-right{
+  padding:15px;
+}
+#logo{
+  float:left;
+}
+
+.nav{
+  li{
+    font-size:133%;
+  }
+}
+
+
+.subcontent{
+
+}
+
+.todo-list{
+  background-color:red;
 }

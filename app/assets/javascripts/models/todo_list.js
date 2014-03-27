@@ -10,6 +10,7 @@ window.Camp6.Models.TodoList = Backbone.Model.extend({
     
     return this._todos
   },
+  
   comments: function(){
     if(!this._comments){
       this._comments = new Camp6.Collections.NoteComments([],{

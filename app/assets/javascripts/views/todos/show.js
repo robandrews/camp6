@@ -3,7 +3,8 @@ window.Camp6.Views.TodoListShow = Backbone.CompositeView.extend({
   
   initialize: function(options){
     this.comments = options.comments
-    
+    this.listenTo(this.model.comments(), "all", this.render)
+        
     var addComment = new Camp6.Views.CommentNew({
       note: this.model
     });   

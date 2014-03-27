@@ -13,27 +13,19 @@
   
   <div class="row proj-sub">
     
-    
+    <div class="subcontent">
     <h4>Todos</h4>
     <div class="add-todo"></div>
     <div class="todos"></div>
+    </div>
     <hr>
-    <h4>Notes</h4><a href="#notes/new">Add a Note</a>
-    <ul class="notes"></ul>
-    
+      <div class="subcontent">
+      <h4>Notes</h4><a href="#notes/new">Add a Note</a>
+      <ul class="notes"></ul>
+    </div>
   
 
   </div>
   
 </div>
 <a href="/">Home</a>
-
-
-<script>
-$(function() {
-  var availableUsers = ["Rob Andrews", "Malcolm Ahoy", "Weyman Fung", "Ryan O'Donnell"];
-  $( "#tags" ).autocomplete({
-    source: availableUsers
-  });
-});
-</script>
