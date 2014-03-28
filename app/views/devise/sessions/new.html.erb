@@ -1,17 +1,25 @@
+<div class="container sign-up-form">
+  <div class="row">
 
-  <body background="http://www.dream-wallpaper.com/free-wallpaper/travel-wallpaper/arctic-scenery-wallpaper/1920x1200/free-wallpaper-7.jpg">
-<h2>Sign in</h2>
+    <div class="col-md-4">
+      <body background="http://www.dream-wallpaper.com/free-wallpaper/travel-wallpaper/arctic-scenery-wallpaper/1920x1200/free-wallpaper-7.jpg">
+        <h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div><%= f.label :email %><br />
+          <%= f.email_field :email, :autofocus => true, :value => "guest@gmail.com" %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password, :value => "password" %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+            <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+            
+            
+          </div>
+        </div>
+      </div>
