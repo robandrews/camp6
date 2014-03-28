@@ -4,7 +4,9 @@
     <label>Due Date: <input type="date" id="edit-todo-date-input" value="<%= todo.escape('due_date').substring(0,10)%>"> </label>
   </label>
 
-  <button class="submit-edit-todo btn-xs">Edit Todo</button>
-  <button class="delete-todo btn-xs">Delete Todo</button>
+  <div class="btn-group btn-sm">
+      <button class="submit-edit-todo btn btn-sm btn-success" href="#" type="button">Submit</button>
+      <button class="delete-todo btn btn-sm btn-danger" href="#" type="button">Delete</button>
+  </div>
   <a href="#" class="close-edit-todo">Close</a>
 </form>

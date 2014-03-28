@@ -14,9 +14,9 @@
 </head>
 <body>
   
-  <%unless current_page?(root_path)%>
+
     <%= render "layouts/nav" %>
-  <%end%>
+
   <%if notice%>
     <div class="alert alert-info"><%= notice %></div>
   <%elsif alert%>
