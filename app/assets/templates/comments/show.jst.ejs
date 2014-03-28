@@ -6,6 +6,7 @@
   <img src="<%=user.get('picture_url')%>" width="40px" class="thumb">
   <li><p><%=comment.escape("content")%></p></li>
   <p>Submitted by <%="" + user.escape("fname") + " " + user.escape("lname")  %>
-  at <%=comment.escape("created_at")%></p>
+  on <%=comment.escape("created_at").substring(0,10)%> at 
+  <%=comment.escape("created_at").substring(11, 19)%></p>
 <%})%>
 </ul>

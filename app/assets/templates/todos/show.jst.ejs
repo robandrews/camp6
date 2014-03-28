@@ -1,18 +1,18 @@
 <div class='todo-list' data-id='<%=todo_list.id%>'>
   <h4><%=todo_list.escape("title")%></h4>
-  <ul>  
+  <ul>
     <%todo_list.todos().each(function(todo){ %>
-      <div class="todo-item">
       <li class="todo-li" data-list-id="<%=todo_list.id%>" data-id="<%= todo.id %>"> 
-      <span><input type="checkbox" class="todo" data-id="<%= todo.get('id') %>" 
-                    <%if(todo.get("completed")){%> CHECKED<%}%>> 
-            </input>             
-            <%=todo.escape("title")%><a class="index-todo">Edit</a></li>
-            <%if (todo.get("due_date")){ %>
-              <p>Due on <%=todo.escape("due_date").substring(0,10)%></p>
-            <%}%>
-    </div>
-
+      <label>
+      <input type="checkbox" class="todo" data-id="<%= todo.get('id') %>" 
+                    <%if(todo.get("completed")){%> CHECKED<%}%>>
+          <%=todo.escape("title")%> :
+          <%var dueClass%>
+          <%var due = Date.parse(todo.get("due_date"))%>
+          <% var today = Date.now() %>
+          <%if( due > today){dueClass = "notDue"}else{dueClass ="pastDue"}%>
+          <span class="<%=dueClass%>"><%=todo.escape("due_date").substring(0,10)%></span></label>
+          <a class="index-todo">Edit</a></li>
     <% }) %>
   </ul>
     

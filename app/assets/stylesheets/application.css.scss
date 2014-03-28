@@ -73,6 +73,7 @@ body {
 .todo-li a{
   visibility: hidden;
   color:#B0B0B0;
+  margin-left:15px;
 }
 
 .todo-li:hover a{
@@ -118,10 +119,6 @@ textarea.comment-body{
   }
 }
 
-.subcontent{
-
-}
-
 .todo-list{
   margin-right:50px;
   
@@ -129,4 +126,12 @@ textarea.comment-body{
 
 a{
   cursor:pointer;
+}
+
+.pastDue{
+  color:red;
+}
+
+.notDue{
+  color:green;
 }

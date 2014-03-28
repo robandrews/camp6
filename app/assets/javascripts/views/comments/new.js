@@ -10,7 +10,10 @@ window.Camp6.Views.NoteCommentNew = Backbone.View.extend({
   },
   
   render: function(){
-    var renderedContent = this.template();
+    
+    var renderedContent = this.template({
+      
+    });
     this.$el.html(renderedContent);  
     return this;
   },

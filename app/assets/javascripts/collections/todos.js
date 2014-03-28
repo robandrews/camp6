@@ -3,6 +3,10 @@ window.Camp6.Collections.Todos = Backbone.Collection.extend({
     return this.todo_list.url() + "/todos"
   },
   
+  comparator: function(model){
+    return model.get("due_date");
+  },
+  
   model: Camp6.Models.Todo,  
   
   initialize: function (models, options) {

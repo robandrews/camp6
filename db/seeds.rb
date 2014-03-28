@@ -7,11 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-rob = User.create(fname: "Rob", lname: "Andrews", email: "rob@gmail.com", password: "password")
+rob = User.create(fname: "Rob", lname: "Andrews", email: "rob@gmail.com", password: "password",
+picture_url: "https://pbs.twimg.com/profile_images/378800000785341088/f402f34cbbb39acdf06cdc4988196e55.jpeg")
 ryan = User.create(fname: "Ryan", lname: "O'Donnell", email: "ryan@gmail.com", password: "password",
   picture_url: "http://spinoff.comicbookresources.com/wp-content/uploads/2013/12/terminator.jpg")
-User.create(fname: "Weyman", lname: "Fung", email: "weyman@gmail.com", password: "password")
-User.create(fname: "Malcolm", lname: "Ahoy", email: "malcolm@gmail.com", password: "password")
+User.create(fname: "Weyman", lname: "Fung", email: "weyman@gmail.com", password: "password",
+picture_url: "https://scontent-b-sjc.xx.fbcdn.net/hphotos-frc3/t1.0-9/998894_10151716068868352_775680431_n.jpg")
+User.create(fname: "Malcolm", lname: "Ahoy", email: "malcolm@gmail.com", password: "password",
+picture_url: "https://scontent-a-sjc.xx.fbcdn.net/hphotos-prn1/t1.0-9/1010778_10201423539891385_1551615900_n.jpg")
 
 proj = rob.projects.create(owner_id: 1, title: "Project 1", subtitle:"a cool project")
 ryan.projects.concat(proj)

@@ -10,6 +10,7 @@ window.Camp6.Views.TodoCommentNew = Backbone.View.extend({
   },
   
   render: function(){
+    debugger
     var renderedContent = this.template();
     this.$el.html(renderedContent);  
     return this;

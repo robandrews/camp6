@@ -52,7 +52,6 @@ window.Camp6.Views.TodoListShow = Backbone.CompositeView.extend({
   showAddTodo: function(event){
     var listNum = $(event.target).data("id")
     var list = this.model;
-    debugger
     var newTodoItemView = new Camp6.Views.TodoItemNew({
       todo_list: list,
       todo_lists: this.project.todo_lists()

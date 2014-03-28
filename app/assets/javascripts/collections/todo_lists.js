@@ -9,5 +9,7 @@ window.Camp6.Collections.TodoLists = Backbone.Collection.extend({
     this.project = options.project;
   },
   
-  comparator: "created_at"
+  comparator: function(model){
+    return model.get("created_at");
+  }
 })
