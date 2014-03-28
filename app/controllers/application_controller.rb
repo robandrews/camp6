@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def check_privileges!
+    redirect_to "/", notice: 'You dont have enough permissions to be here' unless user_signed_in?
+  end
 end

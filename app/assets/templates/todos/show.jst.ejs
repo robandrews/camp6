@@ -1,4 +1,5 @@
-<div class='todo-list' data-id='<%=todo_list.id%>'>
+<div class="container">
+<div class='todo-list-show' data-id='<%=todo_list.id%>'>
   <h4><%=todo_list.escape("title")%></h4>
   <ul>
     <%todo_list.todos().each(function(todo){ %>
@@ -15,12 +16,13 @@
           <a class="index-todo">Edit</a></li>
     <% }) %>
   </ul>
-    
+
   <div class='new-todo-input'></div>  
   <button class="add-single-todo btn-xs" data-id="<%= todo_list.id %>">Add todo</button>
 </div>
+  </div>
 
-<div class="comments">
+  <div class="container">
 <div class="all-note-comments"></div>
 <div class="new-comment-field"></div>
 </div>

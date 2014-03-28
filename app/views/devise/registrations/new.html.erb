@@ -1,31 +1,34 @@
-<div class="container-fluid">
+<div class="container sign-up-form">
 <div class="row">
-<div class="col-xs-4 col-offset-4">
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {role: "form"}) do |f| %>
-  <%= devise_error_messages! %>
+<div class="col-md-4">
+  <body background="http://www.dream-wallpaper.com/free-wallpaper/travel-wallpaper/arctic-scenery-wallpaper/1920x1200/free-wallpaper-7.jpg">
+    
+  <h2>Sign up</h2>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {role: "form"}) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :fname %></div>
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true %></div>
+
+    <div><%= f.label :first_name %><br />
+    <%= f.text_field :fname %></div>
   
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :lname %></div>
+    <div><%= f.label :last_name %><br />
+    <%= f.text_field :lname %></div>
   
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <div><%= f.label :password %><br />
+    <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></div>
   
-  <div><label>Optional Avatar Image URL</label><br />
-  <%= f.text_field :picture_url %></div>
+    <div><label>Optional Avatar Image URL</label><br />
+    <%= f.text_field :picture_url %></div>
 
-  <div><%= f.submit "Sign Up" %></div>
-<% end %>
+    <div><%= f.submit "Sign Up" %></div>
+  <% end %>
 </div>
 </div>
 </div>

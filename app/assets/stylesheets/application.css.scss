@@ -4,6 +4,26 @@
 @import "static_pages";
 @import "fullcalendar.css";
 
+@mixin page-setup{
+  @include outer-container;
+  @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
+  @include pad(40px);
+  background-color:white;
+}
+
+.sign-up-form{
+  margin:0 auto;
+  float:none;
+}
+.comment{
+  @include page-setup;
+  @include pad(30px);
+  p{
+    font-size:1.3em;
+    margin:-40px 0 0 50px;
+  }
+}
+
 nav.navbar{
   background-color:#eee1cc;
 }
@@ -14,13 +34,12 @@ nav.navbar{
   border-style:none;
 }
 
-
-
-.content{
-  background-color:#eee1cc;
-  padding-top:20px;
+.todo-list-show{
+  @include page-setup;
+  margin-left:20px;
 }
 
+html{}
 button{
   @include button;
 }
@@ -92,7 +111,7 @@ ul {
   -moz-border-radius: 30px;
   -khtml-border-radius: 30px;
   -webkit-border-radius: 30px;
-  width: 40px;
+  width: 50px;
 }
 
 textarea.comment-body{
@@ -134,4 +153,7 @@ a{
 
 .notDue{
   color:green;
+}
+
+.sign-up-form{
 }

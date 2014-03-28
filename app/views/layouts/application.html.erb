@@ -10,10 +10,13 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> 
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   
-  <%= render "layouts/nav" %>
+  <%unless current_page?(root_path)%>
+    <%= render "layouts/nav" %>
+  <%end%>
   <%if notice%>
     <div class="alert alert-info"><%= notice %></div>
   <%elsif alert%>

@@ -10,9 +10,9 @@ window.Camp6.Views.NoteCommentNew = Backbone.View.extend({
   },
   
   render: function(){
-    
+    var user_pic = Camp6.proj_users.get(Camp6.current_user_id).get("picture_url")
     var renderedContent = this.template({
-      
+      user_pic: user_pic
     });
     this.$el.html(renderedContent);  
     return this;

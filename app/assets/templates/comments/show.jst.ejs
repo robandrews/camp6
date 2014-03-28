@@ -1,12 +1,17 @@
 <h3>Comments</h3>
-<ul class="comment-list">
+
 <%comments.each(function(comment){%>
-  <%var user = Camp6.proj_users.get(comment.get("commenter_id"))%>
   
-  <img src="<%=user.get('picture_url')%>" width="40px" class="thumb">
-  <li><p><%=comment.escape("content")%></p></li>
-  <p>Submitted by <%="" + user.escape("fname") + " " + user.escape("lname")  %>
-  on <%=comment.escape("created_at").substring(0,10)%> at 
-  <%=comment.escape("created_at").substring(11, 19)%></p>
+  <div class="container comment">
+    <%var user = Camp6.proj_users.get(comment.get("commenter_id"))%>  
+    <img src="<%=user.get('picture_url')%>" width="40px" class="thumb">
+    <%="" + user.escape("fname") + " " + user.escape("lname")  %>
+    on <%=comment.escape("created_at").substring(0,10)%> at 
+    <%=comment.escape("created_at").substring(11, 19)%><hr>
+
+    <p><%=comment.escape("content")%></p>
+
+  </div>
+  
+  
 <%})%>
-</ul>
