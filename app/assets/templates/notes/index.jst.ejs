@@ -1,6 +1,38 @@
-<% notes.each(function(note){ %>  
-  <div class="note-index">
-    <h5> <a href="#notes/<%=note.id%>">Show</a> </h5>
-    <p> <%=note.get("body")%> </p>
+<% var i = 0 %>  
+<% while(i < notes.length){ %>
+  <div class="row">
+
+    <%for(var j = 0; j < 3; j++){%>
+      <%var note = notes.toArray()[i]%>
+      <%if(note == undefined){break}%>
+      <div class="col-md-3 note-index">
+        <h5> <a href="#notes/<%=note.id%>">Show</a> </h5>
+        <p> <%=note.get("body")%> </p>
+      </div>    
+      <% i+=1 %>
+    <%}%>
+
   </div>
-<% }) %>
+<%}%>
+
+
+
+// 
+// <%projects = current_user.projects%>
+// <% i = 0 %>
+// <%while(i < projects.length) do%>  
+//   <div class="row">
+//     
+//     <% 3.times do %>
+//       <%project = projects[i]%>
+//       <%if project.nil?%>
+//         <%break%>
+//       <%end%>
+//       <div class='col-md-3 project-card'>
+//         <h4><%=link_to project.title, project_url(project)%></h4>
+//         <footer>Created by <%=project.owner.name%></footer>
+//       </div>
+//       <% i += 1%>
+//     <%end%>
+//   </div>
+// <%end%>
