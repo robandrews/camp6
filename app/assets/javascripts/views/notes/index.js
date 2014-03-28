@@ -2,7 +2,6 @@ window.Camp6.Views.NotesIndex = Backbone.View.extend({
   template: JST["notes/index"],
   
   render: function(){
-    debugger
     var renderedContent = this.template({
       notes: this.collection
     });
