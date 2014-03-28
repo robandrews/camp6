@@ -2,7 +2,7 @@
 
 <% todos.each(function(todo_list){ %>  
   <div class='todo-list' data-id='<%=todo_list.id%>'>
-    <a href="#todo-lists/<%=todo_list.id%>"<h5><%=todo_list.escape("title")%></h5></a>
+    <a href="#todo-lists/<%=todo_list.id%>"<h3><%=todo_list.escape("title")%></h3></a>
     <ul>
       <%todo_list.todos().each(function(todo){ %>
         <li class="todo-li" data-list-id="<%=todo_list.id%>" data-id="<%= todo.id %>"> 
