@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'backbone-on-rails'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
