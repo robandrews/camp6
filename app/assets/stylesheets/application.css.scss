@@ -11,13 +11,20 @@
   background-color:white;
 }
 
+@mixin note-style{
+  @include outer-container;
+  @include box-shadow(0 0 2px 2px hsla(0, 0%, 0%, 0.45));
+  @include pad(40px);
+  background-color:#eee1cc;
+}
+
 .sign-up-form{
   margin:0 auto;
   float:none;
 }
-.comment{
+div.comment{
   @include page-setup;
-  @include pad(30px);
+  margin-top:30px;;
   p{
     font-size:1.3em;
     margin:-40px 0 0 50px;
@@ -37,6 +44,11 @@ nav.navbar{
 .todo-list-show{
   @include page-setup;
   margin-left:20px;
+}
+
+.content{
+  background-color:#eee1cc;
+  padding-top:20px;
 }
 
 html{}
