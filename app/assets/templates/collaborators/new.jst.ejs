@@ -1,5 +1,18 @@
 <h3>Here's who's on this project:</h3>
 <div class="row">
+ 
+<div class="col-xs-4 current-users-pane">
+  <h5>Team</h5>
+  <ul class="project-team-list">
+  
+  <%proj_users.forEach(function(user){%>
+    <li><%="" + user.escape("fname") + " " + user.escape("lname")  %>:<%=user.escape("email")%>
+    
+  <%})%>
+  
+  </ul>
+</div>
+ 
   <div class="col-xs-6 add-users-pane">
     <h5>Add Members</h5>  
     
@@ -8,9 +21,7 @@
       <button class="add-new-collaborator">Add Collaborator</button>
   </div>
   
-  <div class="col-xs-4 current-users-pane">
-    <h5>Team</h5>
-  </div>
+  
   
   </div>
 </div>

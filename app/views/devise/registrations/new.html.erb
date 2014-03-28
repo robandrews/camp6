@@ -20,6 +20,9 @@
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+  
+  <div><label>Optional Avatar Image URL</label><br />
+  <%= f.text_field :picture_url %></div>
 
   <div><%= f.submit "Sign Up" %></div>
 <% end %>

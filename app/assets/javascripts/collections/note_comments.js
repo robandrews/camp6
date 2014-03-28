@@ -1,6 +1,6 @@
 window.Camp6.Collections.NoteComments = Backbone.Collection.extend({
   url: function(){
-    return "/projects/" + Camp6.project.id + "/notes/" + this.note.id + "/comments"
+    return "/projects/" +Camp6.project.id+ "/notes/" + this.note.id + "/comments";
   },
   
   initialize: function (models, options) {

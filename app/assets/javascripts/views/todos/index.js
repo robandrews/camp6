@@ -1,7 +1,5 @@
 window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   
-  //lets try to make this todo list a composite view so we can re-render individual comments after editing
-  
   template: JST["todos/index"],
   
   initialize: function(options){
@@ -42,7 +40,8 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   showAddList: function(event){
     var newTodoListView = new Camp6.Views.TodoListNew({
       project: this.project,
-      collection: this.project.todo_lists()
+      collection: this.project.todo_lists(),
+      parentView: this
     });
     $(".add-todo").html(newTodoListView.render().$el)
   },

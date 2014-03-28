@@ -14,7 +14,14 @@ class ProjectMembershipsController < ApplicationController
     end    
   end
   
+  def index
+    project = Project.find(params[:project_id])
+    @users = project.users
+    render :json => @users
+  end
+  
   def show
-    
+    @user = User.find(params[:id]);
+    render :json => @user
   end
 end

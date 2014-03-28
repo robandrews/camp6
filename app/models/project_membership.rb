@@ -13,4 +13,5 @@ class ProjectMembership < ActiveRecord::Base
   
   belongs_to :project
   
+  validates :user_id, :uniqueness => { :scope => :project_id }
 end

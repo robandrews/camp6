@@ -1,8 +1,8 @@
-window.Camp6.Views.NoteCommentNew = Backbone.View.extend({
+window.Camp6.Views.TodoCommentNew = Backbone.View.extend({
   template: JST["comments/new"],
   
   initialize: function(options){
-    this.note = options.note
+    this.todo_list = options.todo_list
   },
   
   events:{
@@ -16,8 +16,8 @@ window.Camp6.Views.NoteCommentNew = Backbone.View.extend({
   },
   
   submit:function(event){
-    var commentable_id = this.note.id;
-    var commentable_type = "Note";
+    var commentable_id = this.todo_list.id;
+    var commentable_type = "TodoList";
     var commenter_id = Camp6.current_user_id;
     var content = $(".comment-body").val();
     var comment = new Camp6.Models.NoteComment({
@@ -29,9 +29,9 @@ window.Camp6.Views.NoteCommentNew = Backbone.View.extend({
     var that = this;
     comment.save({}, {
       success: function(comment){
-        that.note.comments().add(comment);
+        that.todo_list.comments().add(comment);
         $(".comment-body").val();
-        that.note.comments().trigger("sync");
+        that.todo_list.comments().trigger("sync");
       }
     });
   }

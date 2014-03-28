@@ -1,6 +1,0 @@
-Internet architecture
-
-url in the search bar - order
-
-1. look to see if it is in the local cache
-2. 

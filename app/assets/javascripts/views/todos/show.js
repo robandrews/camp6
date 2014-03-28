@@ -5,16 +5,15 @@ window.Camp6.Views.TodoListShow = Backbone.CompositeView.extend({
     this.comments = options.comments;
     this.project = options.project;
     this.listenTo(this.model.comments(), "all", this.render);
-    this.listenTo(this.model.todos(), "add", this.render)
-    var addComment = new Camp6.Views.CommentNew({
-      note: this.model
+    this.listenTo(this.model.todos(), "add", this.render);
+    
+    var addComment = new Camp6.Views.TodoCommentNew({
+      todo_list: this.model
     });   
     this.addSubview(".new-comment-field", addComment);
    
-    
-    var allComments = new Camp6.Views.CommentsIndex({
-      model: this.model,
-      comments: this.comments
+    var allComments = new Camp6.Views.CommentsShow({
+      collection: this.comments
     });
     this.addSubview(".all-note-comments", allComments);
   },
@@ -48,6 +47,19 @@ window.Camp6.Views.TodoListShow = Backbone.CompositeView.extend({
         list.todos().add(todo)
       }
     }); 
+  },
+  
+  showAddTodo: function(event){
+    var listNum = $(event.target).data("id")
+    var list = this.model;
+    debugger
+    var newTodoItemView = new Camp6.Views.TodoItemNew({
+      todo_list: list,
+      todo_lists: this.project.todo_lists()
+    });
+
+    $(event.target).parent().find(".new-todo-input")
+        .html(newTodoItemView.render().$el);
   },
   
   showEditTodo: function(event){

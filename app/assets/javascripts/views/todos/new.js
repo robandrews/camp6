@@ -3,10 +3,12 @@ window.Camp6.Views.TodoListNew = Backbone.View.extend({
   
   initialize: function(options){
     this.project = options.project;
+    this.parentView = options.parentView
   },
   
   events:{
-    "click button.submit-new-todo-list":"handleAddedList"
+    "click button.submit-new-todo-list":"handleAddedList",
+    "click a.remove-field":"destroy"
   },
   
   handleAddedList: function(event){
@@ -17,13 +19,18 @@ window.Camp6.Views.TodoListNew = Backbone.View.extend({
       project_id: this.project.id}
     });
     var view = this;    
-
     newList.save({}, {
       success: function(list){ 
         view.collection.add(list);
-        $("#todo-list-name-input").val("");
+        view.remove();
+        view.parentView.render();
       }
     });
+
+  },
+  
+  destroy: function(){
+    this.remove();
   },
   
   render: function(){

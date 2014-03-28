@@ -2,12 +2,17 @@
   <h4><%=todo_list.escape("title")%></h4>
   <ul>  
     <%todo_list.todos().each(function(todo){ %>
+      <div class="todo-item">
       <li class="todo-li" data-list-id="<%=todo_list.id%>" data-id="<%= todo.id %>"> 
       <span><input type="checkbox" class="todo" data-id="<%= todo.get('id') %>" 
                     <%if(todo.get("completed")){%> CHECKED<%}%>> 
-            </input> 
-            <%=todo.escape("title")%>
-            <a class="index-todo">Edit</a></li>
+            </input>             
+            <%=todo.escape("title")%><a class="index-todo">Edit</a></li>
+            <%if (todo.get("due_date")){ %>
+              <p>Due on <%=todo.escape("due_date").substring(0,10)%></p>
+            <%}%>
+    </div>
+
     <% }) %>
   </ul>
     

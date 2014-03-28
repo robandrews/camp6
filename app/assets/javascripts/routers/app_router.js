@@ -41,21 +41,19 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
   
   todoListShow: function(id){
     var todo_list = this.project.todo_lists().get(id);
-    
     var comments = todo_list.comments([], {
-      todo_list: todo_list,
-      project: this.project
+      todo_list: todo_list
     });
-    
     var that = this;
-    
     comments.fetch({
-      success:function(){
+      success: function(comments){
         var todoListView = new Camp6.Views.TodoListShow({
           model: todo_list,
-          comments: comments
+          comments: comments,
+          project: that.project
         });
         $(".content").html(todoListView.render().$el);
+
       }
     })
     
@@ -69,7 +67,6 @@ window.Camp6.Routers.AppRouter = Backbone.Router.extend({
     });
     
     var that = this;
-    
     comments.fetch({
       success: function(comments){
         var noteView = new Camp6.Views.NoteShow({

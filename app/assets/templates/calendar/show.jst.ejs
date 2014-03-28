@@ -2,8 +2,6 @@
 <%window.project_id = project.id%>
 <script>
   $(function(){
-
-    
     $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -12,18 +10,7 @@
 			defaultDate: '2014-03-12',
 			selectable: true,
 			selectHelper: true,
-			select: function(start, end, jsEvent) {
-				// var title = prompt('Event Title:');
-//         var eventData;
-        console.log("select function called")
-        $date_box = $(jsEvent.target);
-        $date_box.popover(
-          { trigger: 'click',
-            content: 'ß Testing!',
-            placement: "auto left"
-            });
-        $date_box.trigger( "click" );
-			},
+			select: function(start, end, jsEvent) {},
 			editable: true,
 			events: "/projects/" + window.project_id + "/calendar",
       unselectAuto: true
@@ -35,6 +22,7 @@
   <div class="row">
     <div class="col-md-2" id="calendar-sidebar"><h3>Calendar Sidebar</h3></div>
     <div class="col-md-9 col-md-offset-1" id="calendar-body">
+      <center><h2 id="cal-title"><%=project.escape("title")%></h2></center>
       <div id='calendar'></div>
     </div>
   </div>

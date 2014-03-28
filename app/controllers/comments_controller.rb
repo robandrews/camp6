@@ -1,11 +1,17 @@
 class CommentsController < ApplicationController
 
-  def index
-    target = Note.find(params[:note_id]) || TodoList.find(params[:todo_list_id])
+  def note_index
+    target = Note.find(params[:note_id])
     @comments = target.comments
     render "comments/index"
   end
 
+  def todo_list_index
+    target = TodoList.find(params[:todo_list_id])
+    @comments = target.comments
+    render "comments/index"
+  end
+  
   def create
     commentable = params["commentable_type"].constantize
     target = commentable.find(params[:commentable_id])

@@ -24,13 +24,16 @@ window.Camp6 = {
         
       }      
     })
-    Camp6.emails = new Array();
     
+    Camp6.emails = new Array();
+
     Camp6.users.fetch({
       success: function(users){
         users.toJSON().forEach(function(user){
           Camp6.emails.push(user[0]);
-        })
+        });
+        
+        Camp6.proj_users.fetch();
       }
     });
   }

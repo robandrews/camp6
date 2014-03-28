@@ -31,13 +31,22 @@
 //= require_tree ./routers
 //= require_tree .
 
-$(function(){
-  $("#create-proj-button").on("click", function(){
-    $("#new-proj-form").submit();
-  })
+$(
+  function(){
+    $("#create-proj-button").on("click", function(){
+      $("#new-proj-form").submit();
+    })
+  }
+)
+
+$('input').keyup(function(e){
+ if(e.keyCode == 13){
+    $(this).trigger('enter');
+ }
 })
 
 $(document).ready(function() {
         $("body").css("display", "none");
         $("body").fadeIn(1000);
 });
+

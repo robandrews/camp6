@@ -13,8 +13,8 @@ window.Camp6.Models.TodoList = Backbone.Model.extend({
   
   comments: function(){
     if(!this._comments){
-      this._comments = new Camp6.Collections.NoteComments([],{
-        note: this
+      this._comments = new Camp6.Collections.TodoListComments([],{
+        todo_list: this
       })
     }
     

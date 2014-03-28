@@ -55,6 +55,7 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
     this.todo_list.todos().remove(this.model.id);
     this.model.destroy();
     this.todo_lists.trigger("sync");
+    this.remove();
   }
   
 })

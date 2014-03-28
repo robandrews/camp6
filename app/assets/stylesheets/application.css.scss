@@ -40,6 +40,11 @@ button{
   background-color:white;
 }
 
+#cal-title{
+  padding:0px;
+  margin-bottom:-30px;
+}
+
 .fc-event {
   background: #fff !important;
   color: #000 !important;
@@ -103,12 +108,15 @@ textarea.comment-body{
   float:left;
 }
 
+.todo-item{
+  padding:10px;
+}
+
 .nav{
   li{
     font-size:133%;
   }
 }
-
 
 .subcontent{
 
@@ -117,4 +125,8 @@ textarea.comment-body{
 .todo-list{
   margin-right:50px;
   
+}
+
+a{
+  cursor:pointer;
 }

@@ -5,15 +5,14 @@ window.Camp6.Views.NoteShow = Backbone.CompositeView.extend({
     this.comments = options.comments    
     this.listenTo(this.model.comments(), "all", this.render)
     
-    var addComment = new Camp6.Views.CommentNew({
+    var addComment = new Camp6.Views.NoteCommentNew({
       note: this.model
     });   
     this.addSubview(".new-comment-field", addComment);
    
     
-    var allComments = new Camp6.Views.CommentsIndex({
-      model: this.model,
-      comments: this.comments
+    var allComments = new Camp6.Views.CommentsShow({
+      collection: this.comments
     });
     this.addSubview(".all-note-comments", allComments);
     

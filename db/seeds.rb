@@ -8,9 +8,10 @@
 
 
 rob = User.create(fname: "Rob", lname: "Andrews", email: "rob@gmail.com", password: "password")
-ryan = User.create(fname: "Ryan", lname: "O'Donnell", email: "ryan@gmail.com", password: "password")
+ryan = User.create(fname: "Ryan", lname: "O'Donnell", email: "ryan@gmail.com", password: "password",
+  picture_url: "http://spinoff.comicbookresources.com/wp-content/uploads/2013/12/terminator.jpg")
 User.create(fname: "Weyman", lname: "Fung", email: "weyman@gmail.com", password: "password")
-User.create(fname: "Malcolm", lname: "X", email: "malcolm@gmail.com", password: "password")
+User.create(fname: "Malcolm", lname: "Ahoy", email: "malcolm@gmail.com", password: "password")
 
 proj = rob.projects.create(owner_id: 1, title: "Project 1", subtitle:"a cool project")
 ryan.projects.concat(proj)
