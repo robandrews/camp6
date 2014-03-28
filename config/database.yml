@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: camp6_production
   pool: 5
-  username: Rob
+  username: 
   password:
