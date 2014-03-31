@@ -28,7 +28,6 @@ window.Camp6.Models.Project = Backbone.Model.extend({
       var lists = jsonResp.todo_lists
       this.todo_lists().set(lists);
       
-      // This code would be used to instantiate individual todo objects, not sure if needed at this juncture.
       var i = 0;
       this.todo_lists().forEach(function(todo_list){
         if(todo_list.todos){
