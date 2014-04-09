@@ -171,5 +171,10 @@ a{
   color:green;
 }
 
-.sign-up-form{
+.current-users-pane{
+  @include page-setup;
+}
+
+.add-users-pane{
+  @include page-setup;
 }

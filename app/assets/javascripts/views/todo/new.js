@@ -17,7 +17,8 @@ window.Camp6.Views.TodoItemNew = Backbone.View.extend({
     "click a.close-add-todo":"closeAddingForm"
   },
   
-  closeAddingForm: function(){
+  closeAddingForm: function(event){
+    event.preventDefault();
     $(".add-todo-form").remove();
   },
   

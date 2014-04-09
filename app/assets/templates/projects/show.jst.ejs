@@ -1,32 +1,26 @@
-<div class="project container">
-  
+<div class="project container">  
   <div class="row">
     <div class="col-xs-5 proj-title">
       <h3 id="proj-title"><%=project.escape("title")%></h3>
       <h5 id="proj-subtitle"><%=project.escape("subtitle")%></h5>
-      <h5><a href="#calendar">Calendar of Events</a></h5>
+      <h4><a href="#calendar">Calendar of Events</a></h4>
     </div>
-      
+    <hr><hr>  
     <div class="col-xs-6">
       <span class="proj-add-users"><a href="#add-collaborators">Add Users to this Project!</a></span>
     </div>
   </div>
-  
   <div class="row proj-sub">
-    
     <div class="subcontent">
     <h4>Todos</h4>
     <div class="add-todo"></div>
     <div class="todos"></div>
     </div>
-    <hr>
+    <hr><hr>
       <div class="subcontent">
       <h4>Notes</h4><a href="#notes/new">Add a Note</a>
       <ul class="notes"></ul>
     </div>
-  
-
   </div>
-  
 </div>
 <a href="/">Home</a>

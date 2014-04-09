@@ -29,7 +29,8 @@ window.Camp6.Views.TodoListNew = Backbone.View.extend({
 
   },
   
-  destroy: function(){
+  destroy: function(event){
+    event.preventDefault();
     this.remove();
   },
   

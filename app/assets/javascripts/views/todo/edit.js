@@ -25,7 +25,7 @@ window.Camp6.Views.TodoEdit = Backbone.View.extend({
   closeEditForm: function(event){
     event.preventDefault();
     $(".edit-todo-form").remove();
-    this.todo_lists.trigger("sync")
+    this.todo_lists.trigger("sync");
   },
   
   submitEdit: function(event){

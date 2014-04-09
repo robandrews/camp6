@@ -9,7 +9,7 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   
   events: {
     "click input.todo":"handleCheckedBox",
-    "click button.add-todo-list":"showAddList",
+    "click a.add-todo-list":"showAddList",
     "click button.add-single-todo":"showAddTodo",
     "click a.index-todo":"showEditTodo"
   },
@@ -38,6 +38,7 @@ window.Camp6.Views.TodoListIndex = Backbone.View.extend({
   },
   
   showAddList: function(event){
+    event.preventDefault();
     var newTodoListView = new Camp6.Views.TodoListNew({
       project: this.project,
       collection: this.project.todo_lists(),
